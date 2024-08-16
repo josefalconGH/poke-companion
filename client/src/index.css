@@ -32,3 +32,17 @@
   position: relative;
   z-index: 2; /* ensure hero image is on top of background */
 }
+
+/* Media Query */
+
+/* Footer - Mobile */
+@media (min-width: 480px) {
+  .footer-custom {
+    text-align: center;
+  }
+
+  .footer-font {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
