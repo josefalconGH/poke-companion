@@ -32,7 +32,7 @@ const genEvoChainSchema = new Schema({
     trim: true,
   },
   evolution_chain: {
-    type: [evolutionStepSchema],
+    type: [evolutionStepSchema], // List of evolution steps
     default: [],
     required: true,
   },
