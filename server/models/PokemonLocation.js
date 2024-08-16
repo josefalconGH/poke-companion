@@ -38,5 +38,5 @@ const regionSchema = new Schema({
 });
 
 // create PokemonLocation model and export
-const PokemonLocation = mongoose.model("PokemonLocation", regionSchema);
+const PokemonLocation = model("PokemonLocation", regionSchema);
 module.exports = PokemonLocation;
