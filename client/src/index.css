@@ -25,7 +25,7 @@
 .hero-image {
   width: auto; /* maintain original aspect ratio */
   max-width: 100%;
-  max-height: 200px;
+  max-height: 150px;
   height: auto;
   margin: 0 auto;
   display: block; /* center image */
@@ -44,5 +44,28 @@
   .footer-font {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+}
+
+/* NavBar - Desktop */
+@media (min-width: 768px) {
+  .navbar-custom {
+    flex-direction: row;
+    justify-content: space-between;
+    /* reduce space between navbar items */
+    padding: 0 4rem;
+  }
+
+  .navbar-cutsom-text {
+    padding-left: 8px;
+  }
+}
+
+/* SearchBar - Desktop */
+@media (min-width: 1035px) {
+  /* change flex direction of search bar to column */
+  .search-bar {
+    flex-direction: column;
+    align-items: center;
   }
 }

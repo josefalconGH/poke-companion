@@ -13,7 +13,7 @@ export default function Footer() {
           All content & design &copy; PokéCompanion 2024.
         </p>
         <p className="footer-font font-semibold text-sm">
-          Pokémon images & names &copy; 1995-2024 Nintendo/Game Freak.
+          Pokémon images & names &copy; 1995-2024 Game Freak.
         </p>
       </div>
     </footer>
