@@ -39,20 +39,6 @@ export default function NavBar() {
             <span className="navbar-cutsom-text">Login</span>
           </a>
         </div>
-        <div className="w-full md:w-auto mt-1 md:mt-0 md:ml-4 relative">
-          <input
-            type="text"
-            placeholder="Search"
-            className="font-semibold w-full md:w-60 bg-neutral-400 text-neutral-900 placeholder-neutral-900 rounded-md px-3 py-1 pr-10 focus:outline-none focus:ring-2 focus:ring-amber-200"
-          />
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-            <img
-              src={search}
-              alt="Search Icon"
-              className="w-5 h-5 text-gray-400"
-            />
-          </div>
-        </div>
       </div>
     </nav>
   );
