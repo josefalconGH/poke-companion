@@ -2,7 +2,7 @@
 import pokedex from "../../assets/icons/pokedex.svg";
 import crown from "../../assets/icons/crown.svg";
 import game from "../../assets/icons/game.svg";
-import faq from "../../assets/icons/faq.svg";
+import trainer from "../../assets/icons/trainer.svg";
 import search from "../../assets/icons/search.svg";
 
 export default function NavBar() {
@@ -35,8 +35,8 @@ export default function NavBar() {
             href="#"
             className="navbar-custom font-semibold text-zinc-100 flex flex-col items-center"
           >
-            <img src={faq} alt="Other" className="w-8 h-8" />
-            <span className="navbar-cutsom-text">Other</span>
+            <img src={trainer} alt="Login/Signup" className="w-8 h-8" />
+            <span className="navbar-cutsom-text">Login</span>
           </a>
         </div>
         <div className="w-full md:w-auto mt-1 md:mt-0 md:ml-4 relative">
