@@ -21,8 +21,8 @@ export default function NavBar() {
             href="#"
             className="navbar-custom font-semibold text-zinc-100 flex flex-col items-center"
           >
-            <img src={crown} alt="Coronation" className="w-8 h-8" />
-            <span className="navbar-cutsom-text">Coronation</span>
+            <img src={crown} alt="Tournament" className="w-8 h-8" />
+            <span className="navbar-cutsom-text">Tournament</span>
           </a>
           <a
             href="#"
