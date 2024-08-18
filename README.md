@@ -6,6 +6,8 @@
 
 PokéCompanion is a web application that serves as a hub for all things Pokémon. Users can find Pokedex information (including stats, abilities, and evolutions, locations), view information on moves, items, and abilities, and use their favorite Pokémon in the "World Coronation Series" 1v1 battle simulator. PokéCompanion is a full-stack application that uses the MERN stack (MongoDB, Express, React, Node.js) and the PokéAPI.
 
+You can use PokéComapion [here](www.poke-companion.com)
+
 ## Features
 
 -
