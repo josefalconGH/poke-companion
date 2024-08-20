@@ -23,5 +23,5 @@
 
 .panel-home a {
   color: var(--panel-link-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
