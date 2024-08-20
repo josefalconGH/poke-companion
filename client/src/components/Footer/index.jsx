@@ -2,7 +2,7 @@
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-neutral-700 to-neutral-950 text-white p-2">
-      <div className="footer-custom text-left mb-2">
+      <div className="footer-custom text-left mb-2 ml-2">
         <a
           href="/about#privacy"
           className="font-bold text-zinc-100 hover:text-amber-200 underline inline-block mb-2"
