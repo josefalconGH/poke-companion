@@ -4,14 +4,14 @@ import "./style.css";
 
 export default function Homepage() {
   return (
-    <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
+    <div className="bg-gray-100 p-2 rounded-lg shadow-lg">
       <main>
         <header>
           <h1 className="header-container font-extrabold flex justify-center text-center m-2 px-2">
             Pokémon Companion - Updates &amp; Development
           </h1>
         </header>
-        <section className="panel-home m-4">
+        <section className="panel-home my-4 mx-2">
           <p className="pb-2">
             <span className="font-bold">Welcome to the PokéCompanion!</span>{" "}
             This application is currently under development and will be updated
