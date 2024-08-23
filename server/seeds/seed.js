@@ -1,14 +1,11 @@
 // Purpose: Seed the databse
 const db = require("../config/connection");
-const { User, Post } = require("../models");
 const cleanDB = require("./cleanDB");
 
-const pokemonData = require("./pokemon-data.json");
-const pokemonGenEvoData = require("./pokemon-gen-evochain.json");
-const pokemonLocationData = require("./pokemon-locations-by-region.json");
-const typeEffectivenessData = require("./type-effectiveness.json");
-const itemData = require("./items.json");
-const moveData = require("./moves.json");
+const pokemonData = require("./data-pokemon.json");
+const typeEffectivenessData = require("./data-type-effectiveness.json");
+const itemData = require("./data-items.json");
+const moveData = require("./data-moves.json");
 
 db.once("open", async () => {
   try {
