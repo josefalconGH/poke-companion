@@ -71,7 +71,7 @@ async function fetchAllTypesEffectiveness() {
     "type-effectiveness.json",
     JSON.stringify(typeEffectivenessData, null, 2)
   );
-  console.log("Type effectiveness data saved to type-effectiveness.json");
+  console.log("Type effectiveness data saved to data-type-effectiveness.json");
 }
 
 fetchAllTypesEffectiveness();

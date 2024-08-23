@@ -1,172 +1,199 @@
 const axios = require("axios");
 const fs = require("fs");
 
-const POKEAPI_MOVE_URL = "https://pokeapi.co/api/v2/move/";
-const POKEAPI_GENERATION_URL = "https://pokeapi.co/api/v2/generation/";
-const POKEAPI_VERSION_GROUP_URL = "https://pokeapi.co/api/v2/version-group/";
+const POKEAPI_MOVES_URL = "https://pokeapi.co/api/v2/move/";
 const MAX_RETRIES = 3;
+const MAX_CONCURRENT_REQUESTS = 5; // Control the number of concurrent requests
+const TOTAL_MOVES = 850; // Adjust based on the actual number of moves in the API
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function fetchMoveData(moveName, retries = 0) {
+async function fetchMoveData(id, retries = 0) {
   try {
-    const response = await axios.get(`${POKEAPI_MOVE_URL}${moveName}`);
-    const move = response.data;
-
-    return {
-      name: move.name,
-      type: move.type.name,
-      category: move.damage_class.name,
-      power: move.power,
-      accuracy: move.accuracy,
-      pp: move.pp,
-      effect:
-        move.effect_entries.length > 0
-          ? move.effect_entries[0].short_effect
-          : "No effect",
-      probability: move.effect_chance || null,
-    };
+    const response = await axios.get(`${POKEAPI_MOVES_URL}${id}`);
+    return response.data;
   } catch (error) {
     if (retries < MAX_RETRIES) {
       console.warn(
-        `Retrying to fetch data for move ${moveName} (${
-          retries + 1
-        }/${MAX_RETRIES})...`
+        `Retrying to fetch move ID ${id} (${retries + 1}/${MAX_RETRIES})...`
       );
       await delay(1000);
-      return fetchMoveData(moveName, retries + 1);
+      return fetchMoveData(id, retries + 1);
     } else {
-      console.error(`Error fetching data for move ${moveName}:`, error);
+      console.error(`Error fetching data for move ID ${id}:`, error);
       return null;
     }
   }
 }
 
 async function fetchAllMoves() {
-  try {
-    const response = await axios.get(POKEAPI_MOVE_URL, {
-      params: { limit: 1000 },
-    });
-    return response.data.results.map((move) => move.name);
-  } catch (error) {
-    console.error("Error fetching all moves:", error);
-    return [];
-  }
-}
+  const allMoves = [];
+  const promises = [];
+  let completed = 0;
 
-async function fetchGenerationData(generationName) {
-  try {
-    const response = await axios.get(
-      `${POKEAPI_GENERATION_URL}${generationName}`
-    );
-    const generation = response.data;
-
-    return generation.moves.map((move) => move.name);
-  } catch (error) {
-    console.error(
-      `Error fetching generation data for ${generationName}:`,
-      error
-    );
-    return [];
-  }
-}
-
-async function fetchHMData(versionGroupName) {
-  try {
-    const response = await axios.get(
-      `${POKEAPI_VERSION_GROUP_URL}${versionGroupName}`
-    );
-    const versionGroup = response.data;
-
-    const hmData = {};
-
-    for (let move of versionGroup.move_learn_methods) {
-      if (move.name.startsWith("hm")) {
-        const moveData = await fetchMoveData(move.name);
-        hmData[move.name] = {
-          location: "Unknown", // Need to manually map locations based on game knowledge
-          pokemon: versionGroup.pokemon.map((p) => p.name),
-        };
-      }
+  for (let id = 1; id <= TOTAL_MOVES; id++) {
+    promises.push(fetchMoveData(id));
+    if (promises.length >= MAX_CONCURRENT_REQUESTS) {
+      const results = await Promise.all(promises);
+      processMoveResults(results, allMoves);
+      completed += results.filter(Boolean).length;
+      console.log(`Progress: ${completed}/${TOTAL_MOVES} moves fetched.`);
+      promises.length = 0; // Reset the array
     }
-
-    return hmData;
-  } catch (error) {
-    console.error(
-      `Error fetching HM data for version group ${versionGroupName}:`,
-      error
-    );
-    return {};
   }
+
+  // Fetch remaining moves if any
+  if (promises.length > 0) {
+    const results = await Promise.all(promises);
+    processMoveResults(results, allMoves);
+    completed += results.filter(Boolean).length;
+    console.log(`Progress: ${completed}/${TOTAL_MOVES} moves fetched.`);
+  }
+
+  const movesData = formatMovesData(allMoves);
+  fs.writeFileSync("data-moves.json", JSON.stringify(movesData, null, 2));
+  console.log("Move data saved to data-moves.json");
 }
 
-async function createMovesJson() {
-  const allMoves = await fetchAllMoves();
-  const moveDataList = [];
+function processMoveResults(results, allMoves) {
+  results.forEach((moveDetails) => {
+    if (moveDetails) {
+      const moveData = {
+        id: moveDetails.id,
+        name: moveDetails.name,
+        type: moveDetails.type.name,
+        category: moveDetails.damage_class.name,
+        power: moveDetails.power || null,
+        accuracy: moveDetails.accuracy || null,
+        pp: moveDetails.pp,
+        priority: moveDetails.priority,
+        target: moveDetails.target.name,
+        damage_class: moveDetails.damage_class.name,
+        effect:
+          moveDetails.effect_entries.find(
+            (entry) => entry.language.name === "en"
+          )?.effect || "No effect information",
+        effect_chance: moveDetails.effect_chance || null,
+        generation: moveDetails.generation.name,
+        meta: {
+          ailment: moveDetails.meta?.ailment.name || "none",
+          min_hits: moveDetails.meta?.min_hits || 1,
+          max_hits: moveDetails.meta?.max_hits || 1,
+          min_turns: moveDetails.meta?.min_turns || 1,
+          max_turns: moveDetails.meta?.max_turns || 1,
+          drain: moveDetails.meta?.drain || 0,
+          healing: moveDetails.meta?.healing || 0,
+          crit_rate: moveDetails.meta?.crit_rate || 0,
+          ailment_chance: moveDetails.meta?.ailment_chance || 0,
+          flinch_chance: moveDetails.meta?.flinch_chance || 0,
+          stat_chance: moveDetails.meta?.stat_chance || 0,
+        },
+        machines: moveDetails.machines.map((machine) => ({
+          version: machine.version_group.name,
+          machine: machine.machine.url.split("/").slice(-2, -1)[0], // Extract the machine ID
+        })),
+        z_move: moveDetails.meta?.z_move_power
+          ? {
+              name: moveDetails.name, // Assuming Z-Move is based on the move itself
+              type: moveDetails.type.name,
+              power: moveDetails.meta.z_move_power,
+            }
+          : null,
+        flavor_text: moveDetails.flavor_text_entries
+          .filter((entry) => entry.language.name === "en")
+          .map((entry) => ({
+            version: entry.version_group.name,
+            text: entry.flavor_text,
+          })),
+      };
+
+      allMoves.push(moveData);
+    }
+  });
+}
+
+function formatMovesData(allMoves) {
   const movesByGeneration = {};
-  const moveFilters = {
+  const moveCategories = {
+    physical: [],
+    special: [],
+    status: [],
+  };
+  const moveGroups = {
     z_moves: [],
     non_battle_moves: [],
     multi_target_moves: [],
-    move_groups: {
-      cannot_miss: [],
-      one_hit_knockout: [],
-    },
+    unmissable_moves: [],
+    one_hit_knock_out_moves: [],
   };
-  const hmTable = {};
+  const hmMoves = {};
 
-  for (let move of allMoves) {
-    const moveData = await fetchMoveData(move);
-    if (moveData) {
-      moveDataList.push(moveData);
-
-      // Example filtering logic (needs to be expanded with real data)
-      if (moveData.category === "z-move") {
-        moveFilters.z_moves.push(moveData.name);
-      }
-      if (moveData.name.includes("surf")) {
-        moveFilters.multi_target_moves.push(moveData.name);
-      }
-      if (moveData.name === "swift") {
-        moveFilters.move_groups.cannot_miss.push(moveData.name);
-      }
-      if (moveData.name === "fissure") {
-        moveFilters.move_groups.one_hit_knockout.push(moveData.name);
-      }
+  allMoves.forEach((move) => {
+    // Group by generation
+    if (!movesByGeneration[move.generation]) {
+      movesByGeneration[move.generation] = [];
     }
-    await delay(100); // Slight delay to avoid hitting API limits
-  }
+    movesByGeneration[move.generation].push(move.name);
 
-  for (let i = 1; i <= 8; i++) {
-    const generationName = `generation-${i}`;
-    movesByGeneration[generationName] = await fetchGenerationData(
-      generationName
-    );
-  }
+    // Categorize by move category
+    moveCategories[move.category].push(move.name);
 
-  const versionGroups = [
-    "red-blue",
-    "gold-silver",
-    "ruby-sapphire",
-    "diamond-pearl",
-    "black-white",
-    "x-y",
-    "sun-moon",
-    "sword-shield",
-  ];
-  for (let versionGroup of versionGroups) {
-    hmTable[versionGroup] = await fetchHMData(versionGroup);
-  }
+    // Group by special groups
+    if (move.z_move) {
+      moveGroups.z_moves.push({
+        name: move.z_move.name,
+        type: move.z_move.type,
+        power: move.z_move.power,
+        base_move: move.name,
+      });
+    }
 
-  const movesJson = {
-    all_moves: moveDataList,
+    if (move.target === "user") {
+      moveGroups.non_battle_moves.push(move.name);
+    }
+
+    if (
+      move.target === "all-opponents" ||
+      move.target === "all-other-pokemon"
+    ) {
+      moveGroups.multi_target_moves.push(move.name);
+    }
+
+    if (move.effect === "This move does not check accuracy.") {
+      moveGroups.unmissable_moves.push(move.name);
+    }
+
+    if (move.effect.includes("faints instantly")) {
+      moveGroups.one_hit_knock_out_moves.push(move.name);
+    }
+
+    // HM moves (This part assumes you have a way to identify HM moves, such as a specific category or other identifier)
+    if (
+      move.name.startsWith("cut") ||
+      move.name.startsWith("surf") ||
+      move.name.startsWith("fly")
+    ) {
+      // Example condition
+      const generation = move.generation;
+      if (!hmMoves[generation]) {
+        hmMoves[generation] = [];
+      }
+      hmMoves[generation].push({
+        hm_number: "HM0X", // Replace with actual HM number
+        name: move.name,
+        location: "Unknown", // Replace with actual location data if available
+        learnable_by: [], // Add Pokémon learnable by this move if needed
+      });
+    }
+  });
+
+  return {
+    all_moves: allMoves,
     moves_by_generation: movesByGeneration,
-    move_filters: moveFilters,
-    hm_table: hmTable,
+    move_categories: moveCategories,
+    move_groups: moveGroups,
+    hm_moves: hmMoves,
   };
-
-  fs.writeFileSync("moves.json", JSON.stringify(movesJson, null, 2));
-  console.log("Moves data saved to moves.json");
 }
 
-createMovesJson();
+fetchAllMoves();
