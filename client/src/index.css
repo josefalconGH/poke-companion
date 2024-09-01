@@ -37,6 +37,17 @@
   z-index: 2; /* ensure hero image is on top of background */
 }
 
+/* Custom CSS for NavBar Positioning */
+.navbar-container {
+  position: relative; /* Ensures the positioning is relative to this element */
+  margin-top: -40px; /* Move the navbar upwards by 40px */
+  z-index: 10; /* Ensure the navbar stays above the hero image */
+  width: 90%; /* Ensures width is 90% of the container */
+  left: 50%; /* Position it centrally relative to its container */
+  transform: translateX(-50%); /* Center align it */
+  border-radius: 10px; /* Apply rounding to match Tailwind's rounded-lg */
+}
+
 /* NavBar SVG custom rotation */
 .navbar-custom img {
   transition: transform 0.3s ease;
