@@ -4,7 +4,7 @@ import "./style.css";
 
 export default function Homepage() {
   return (
-    <main>
+    <main class="main-container">
       <header>
         <h1 className="header-container font-extrabold flex justify-center text-center m-2 px-2">
           Pokémon Companion - Updates &amp; Development
