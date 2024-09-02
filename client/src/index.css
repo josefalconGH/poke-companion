@@ -25,19 +25,19 @@
   right: 0;
   bottom: 0;
   background-repeat: repeat-x;
-  background-size: contain; /* ensure the edge image fits without stretching */
+  background-size: contain;
   z-index: 1;
 }
 
 .hero-image {
-  width: auto; /* maintain original aspect ratio */
+  width: auto;
   max-width: 100%;
   max-height: 150px;
   height: auto;
   margin: 0 auto;
-  display: block; /* center image */
+  display: block;
   position: relative;
-  z-index: 2; /* ensure hero image is on top of background */
+  z-index: 2;
 }
 
 /* NavBar CSS */
@@ -68,22 +68,21 @@
   list-style: none;
 }
 
-.navbar-link {
+.navbar-item a img {
+  transition: transform 0.2s ease;
+}
+
+.navbar-item a:hover img {
+  transform: scale(1.2);
+}
+
+.navbar-menu-heading {
   font-weight: 600;
   color: var(--navbar-link-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-}
-
-.navbar-link img {
-  transition: transform 0.2s ease;
-}
-
-.navbar-link img:hover {
-  /* enlarge slightly on hover */
-  transform: scale(1.2);
 }
 
 .navbar-icon {

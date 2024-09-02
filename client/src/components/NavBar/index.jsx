@@ -17,25 +17,25 @@ export default function NavBar() {
         {!searchActive && (
           <ul className="navbar-menu">
             <li className="navbar-item">
-              <a href="#" className="navbar-link" title="Data">
+              <a href="#" className="navbar-menu-heading" title="Data">
                 <img src={pokedex} alt="Data" className="navbar-icon" />
                 <span className="navbar-text">Data</span>
               </a>
             </li>
             <li className="navbar-item">
-              <a href="#" className="navbar-link" title="Tournament">
+              <a href="#" className="navbar-menu-heading" title="Tournament">
                 <img src={crown} alt="Tournament" className="navbar-icon" />
                 <span className="navbar-text">Tournament</span>
               </a>
             </li>
             <li className="navbar-item">
-              <a href="#" className="navbar-link" title="Games">
+              <a href="#" className="navbar-menu-heading" title="Games">
                 <img src={game} alt="Games" className="navbar-icon" />
                 <span className="navbar-text">Games</span>
               </a>
             </li>
             <li className="navbar-item">
-              <a href="#" className="navbar-link" title="Login">
+              <a href="#" className="navbar-menu-heading" title="Login">
                 <img src={trainer} alt="Login/Signup" className="navbar-icon" />
                 <span className="navbar-text">Login</span>
               </a>
