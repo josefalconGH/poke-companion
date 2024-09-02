@@ -16,6 +16,7 @@
   width: 100%;
   max-height: 200px;
   overflow: hidden;
+  transition: max-height 0.5s ease, margin-top 0.5s ease;
 }
 
 .hero-background {
@@ -38,11 +39,11 @@
   display: block;
   position: relative;
   z-index: 2;
+  transition: max-height 0.5s ease, margin-top 0.5s ease;
 }
 
 @media (min-width: 1260px) {
   .hero-image {
-    /* decrease the size of the hero image and move it upwards slightly */
     max-height: 200px;
     margin-top: -35px;
   }
@@ -56,6 +57,7 @@
     var(--bg-gradient-end)
   );
   padding: 5px 25px;
+  transition: none;
 }
 
 @media (min-width: 1260px) {
@@ -64,14 +66,11 @@
     border-radius: 6px;
     margin-top: -26px;
     max-width: 1260px;
-
-    /* position navbar centered */
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-
-    /* add shadow */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: margin-top 0.5s ease, max-width 0.5s ease;
   }
 }
 
@@ -108,13 +107,13 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  transition: flex-direction 0.5s ease, padding 0.5s ease;
 }
 
 @media (min-width: 800px) {
   .navbar-menu-heading {
     flex-direction: row;
     justify-content: space-between;
-    /* reduce space between navbar items */
     padding: 5px 50px;
   }
 
