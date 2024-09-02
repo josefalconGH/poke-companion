@@ -11,6 +11,20 @@
   overflow-wrap: break-word;
 }
 
+/* Main CSS */
+.main-container {
+  margin: 1.25rem auto 2rem;
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  background-color: #fff;
+}
+
+@media (min-width: 1260px) {
+  .main-container {
+    border-radius: 6px;
+  }
+}
+
 /* Panel CSS */
 .panel-home {
   background-color: var(--panel-bg-color);
@@ -18,7 +32,7 @@
   display: block;
   margin-bottom: 1rem;
   padding: 1rem;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .panel-home a {
