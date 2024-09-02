@@ -7,9 +7,12 @@
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --bg-gradient-start: #505050;
   --bg-gradient-end: #0a0a0a;
-  --bg-gradient-active-start: #35353585;
-  --bg-gradient-active-end: #00000085;
+
+  --bg-gradient-active-start: #30303020;
+  --bg-gradient-active-end: #000000db;
+
   --navbar-link-color: #f4f4f5;
+
   --white-text: #f4f4f5;
   --yellow-text: #ffff8f;
 }
