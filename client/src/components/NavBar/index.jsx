@@ -4,6 +4,8 @@ import crown from "../../assets/icons/crown.svg";
 import game from "../../assets/icons/game.svg";
 import trainer from "../../assets/icons/trainer.svg";
 
+import DataDropdown from "../Dropdowns/DataDropdown";
+
 export default function NavBar() {
   const [searchActive, setSearchActive] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
@@ -42,6 +44,13 @@ export default function NavBar() {
                 <img src={pokedex} alt="Data" className="navbar-icon" />
                 <span className="navbar-text">Data</span>
               </a>
+              <div
+                className={`navbar-sub-menu ${
+                  activeItem === "data" ? "visible" : ""
+                }`}
+              >
+                <DataDropdown isVisible={activeItem === "data"} />
+              </div>
             </li>
             <li
               className={`navbar-item ${
