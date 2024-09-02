@@ -7,47 +7,47 @@ export default function DataDropdown({ isVisible }) {
   return (
     <ul className="dropdown-menu" role="menu">
       <li className="dropdown-item" role="menuitem">
-        <a href="/pokedex" title="View Pokédex">
+        <a href="#" title="View Pokédex">
           Pokédex
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="/moves" title="View Moves">
+        <a href="#" title="View Moves">
           Moves
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="/type-chart" title="View Type Chart">
+        <a href="#" title="View Type Chart">
           Type Chart
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="/abilities" title="View Abilities">
+        <a href="#" title="View Abilities">
           Abilities
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="/items" title="View Items">
+        <a href="#" title="View Items">
           Items
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="/evo-chain" title="View Evolution Chain">
+        <a href="#" title="View Evolution Chain">
           Evo Chain
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="/locations" title="View Locations">
+        <a href="#" title="View Locations">
           Locations
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="/training" title="View Training (EVs)">
+        <a href="#" title="View Training (EVs)">
           Training (EVs)
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="/breeding" title="View Breeding">
+        <a href="#" title="View Breeding">
           Breeding
         </a>
       </li>
