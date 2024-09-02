@@ -5,6 +5,9 @@ import game from "../../assets/icons/game.svg";
 import trainer from "../../assets/icons/trainer.svg";
 
 import DataDropdown from "../Dropdowns/DataDropdown";
+import GamesDropdown from "../Dropdowns/GamesDropdown";
+import WorldCSDropdown from "../Dropdowns/WorldCSDropdown";
+import LoginDropdown from "../Dropdowns/LoginDropdown";
 
 export default function NavBar() {
   const [searchActive, setSearchActive] = useState(false);
@@ -68,6 +71,13 @@ export default function NavBar() {
                 <img src={game} alt="Games" className="navbar-icon" />
                 <span className="navbar-text">Games</span>
               </a>
+              <div
+                className={`navbar-sub-menu ${
+                  activeItem === "games" ? "visible" : ""
+                }`}
+              >
+                <GamesDropdown isVisible={activeItem === "games"} />
+              </div>
             </li>
             <li
               className={`navbar-item ${
@@ -79,6 +89,13 @@ export default function NavBar() {
                 <img src={crown} alt="World CS" className="navbar-icon" />
                 <span className="navbar-text">World CS</span>
               </a>
+              <div
+                className={`navbar-sub-menu ${
+                  activeItem === "world cs" ? "visible" : ""
+                }`}
+              >
+                <WorldCSDropdown isVisible={activeItem === "world cs"} />
+              </div>
             </li>
             <li
               className={`navbar-item ${
@@ -90,6 +107,13 @@ export default function NavBar() {
                 <img src={trainer} alt="Login/Signup" className="navbar-icon" />
                 <span className="navbar-text">Login</span>
               </a>
+              <div
+                className={`navbar-sub-menu ${
+                  activeItem === "login" ? "visible" : ""
+                }`}
+              >
+                <LoginDropdown isVisible={activeItem === "login"} />
+              </div>
             </li>
           </ul>
         )}
