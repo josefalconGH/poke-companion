@@ -58,6 +58,8 @@
 
 /* NavBar CSS */
 .navbar {
+  position: relative;
+  z-index: 3;
   background: linear-gradient(
     to bottom,
     var(--bg-gradient-start),
@@ -69,7 +71,6 @@
 
 @media (min-width: 1260px) {
   .navbar {
-    z-index: 3;
     border-radius: 6px;
     margin-top: -26px;
     max-width: 1260px;
@@ -97,6 +98,7 @@
 }
 
 .navbar-item {
+  position: relative;
   list-style: none;
   flex: 1;
   display: flex;
