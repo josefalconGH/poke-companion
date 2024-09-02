@@ -45,17 +45,6 @@ export default function NavBar() {
             </li>
             <li
               className={`navbar-item ${
-                activeItem === "world cs" ? "active" : ""
-              }`}
-              onClick={() => handleItemClick("world cs")}
-            >
-              <a className="navbar-menu-heading" title="World CS">
-                <img src={crown} alt="World CS" className="navbar-icon" />
-                <span className="navbar-text">World CS</span>
-              </a>
-            </li>
-            <li
-              className={`navbar-item ${
                 activeItem === "games" ? "active" : ""
               }`}
               onClick={() => handleItemClick("games")}
@@ -63,6 +52,17 @@ export default function NavBar() {
               <a className="navbar-menu-heading" title="Games">
                 <img src={game} alt="Games" className="navbar-icon" />
                 <span className="navbar-text">Games</span>
+              </a>
+            </li>
+            <li
+              className={`navbar-item ${
+                activeItem === "world cs" ? "active" : ""
+              }`}
+              onClick={() => handleItemClick("world cs")}
+            >
+              <a className="navbar-menu-heading" title="World CS">
+                <img src={crown} alt="World CS" className="navbar-icon" />
+                <span className="navbar-text">World CS</span>
               </a>
             </li>
             <li
