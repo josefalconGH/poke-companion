@@ -45,13 +45,13 @@ export default function NavBar() {
             </li>
             <li
               className={`navbar-item ${
-                activeItem === "tournament" ? "active" : ""
+                activeItem === "world cs" ? "active" : ""
               }`}
-              onClick={() => handleItemClick("tournament")}
+              onClick={() => handleItemClick("world cs")}
             >
-              <a className="navbar-menu-heading" title="Tournament">
-                <img src={crown} alt="Tournament" className="navbar-icon" />
-                <span className="navbar-text">Tournament</span>
+              <a className="navbar-menu-heading" title="World CS">
+                <img src={crown} alt="World CS" className="navbar-icon" />
+                <span className="navbar-text">World CS</span>
               </a>
             </li>
             <li
