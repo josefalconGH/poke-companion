@@ -40,6 +40,14 @@
   z-index: 2;
 }
 
+@media (min-width: 1260px) {
+  .hero-image {
+    /* decrease the size of the hero image and move it upwards slightly */
+    max-height: 200px;
+    margin-top: -35px;
+  }
+}
+
 /* NavBar CSS */
 .navbar {
   background: linear-gradient(
