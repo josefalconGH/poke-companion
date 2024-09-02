@@ -123,3 +123,16 @@
 .navbar-text {
   margin-top: 4px;
 }
+
+/* Footer CSS */
+@media (min-width: 480px) {
+  .footer-custom {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .footer-font {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
