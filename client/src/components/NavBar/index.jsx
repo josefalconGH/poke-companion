@@ -12,48 +12,32 @@ export default function NavBar() {
   };
 
   return (
-    <nav className="bg-gradient-to-b from-neutral-700 to-neutral-950 pt-1 pb-1 px-4">
-      <div className="flex flex-col md:flex-row justify-between items-center">
+    <nav className="navbar">
+      <div className="navbar-container">
         {!searchActive && (
-          <ul className="flex justify-between flex-1 w-full md:w-auto">
+          <ul className="navbar-menu">
             <li className="navbar-item">
-              <a
-                href="#"
-                className="navbar-custom font-semibold text-zinc-100 flex flex-col items-center"
-                title="Data"
-              >
-                <img src={pokedex} alt="Data" className="w-8 h-8" />
-                <span className="navbar-cutsom-text">Data</span>
+              <a href="#" className="navbar-link" title="Data">
+                <img src={pokedex} alt="Data" className="navbar-icon" />
+                <span className="navbar-text">Data</span>
               </a>
             </li>
             <li className="navbar-item">
-              <a
-                href="#"
-                className="navbar-custom font-semibold text-zinc-100 flex flex-col items-center"
-                title="Tournament"
-              >
-                <img src={crown} alt="Tournament" className="w-8 h-8" />
-                <span className="navbar-cutsom-text">Tournament</span>
+              <a href="#" className="navbar-link" title="Tournament">
+                <img src={crown} alt="Tournament" className="navbar-icon" />
+                <span className="navbar-text">Tournament</span>
               </a>
             </li>
             <li className="navbar-item">
-              <a
-                href="#"
-                className="navbar-custom font-semibold text-zinc-100 flex flex-col items-center"
-                title="Games"
-              >
-                <img src={game} alt="Games" className="w-8 h-8" />
-                <span className="navbar-cutsom-text">Games</span>
+              <a href="#" className="navbar-link" title="Games">
+                <img src={game} alt="Games" className="navbar-icon" />
+                <span className="navbar-text">Games</span>
               </a>
             </li>
             <li className="navbar-item">
-              <a
-                href="#"
-                className="navbar-custom font-semibold text-zinc-100 flex flex-col items-center"
-                title="Login"
-              >
-                <img src={trainer} alt="Login/Signup" className="w-8 h-8" />
-                <span className="navbar-cutsom-text">Login</span>
+              <a href="#" className="navbar-link" title="Login">
+                <img src={trainer} alt="Login/Signup" className="navbar-icon" />
+                <span className="navbar-text">Login</span>
               </a>
             </li>
           </ul>
