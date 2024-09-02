@@ -7,8 +7,9 @@
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --bg-gradient-start: #505050;
   --bg-gradient-end: #0a0a0a;
+  --bg-gradient-active-start: #35353585;
+  --bg-gradient-active-end: #00000085;
   --navbar-link-color: #f4f4f5;
-
   --white-text: #f4f4f5;
   --yellow-text: #ffff8f;
 }
@@ -82,6 +83,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .navbar-menu {
@@ -93,14 +95,30 @@
 
 .navbar-item {
   list-style: none;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .navbar-item a img {
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .navbar-item a:hover img {
   transform: scale(1.2);
+}
+
+.navbar-item.active {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-gradient-active-start),
+    var(--bg-gradient-active-end)
+  );
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
 .navbar-menu-heading {
@@ -113,7 +131,7 @@
   transition: flex-direction 0.5s ease, padding 0.5s ease;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
   .navbar-menu-heading {
     flex-direction: row;
     justify-content: space-between;
@@ -128,10 +146,6 @@
 .navbar-icon {
   width: 32px;
   height: 32px;
-}
-
-.navbar-text {
-  margin-top: 4px;
 }
 
 /* Footer CSS */
