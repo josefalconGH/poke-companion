@@ -16,7 +16,13 @@ export default function NavBar() {
   };
 
   const handleItemClick = (item) => {
-    setActiveItem(item);
+    if (activeItem === item) {
+      // If the same item is clicked again, close the dropdown
+      setActiveItem(null);
+    } else {
+      // Otherwise, open the dropdown for the clicked item
+      setActiveItem(item);
+    }
   };
 
   useEffect(() => {
