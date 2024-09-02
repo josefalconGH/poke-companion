@@ -63,7 +63,7 @@
     var(--bg-gradient-start),
     var(--bg-gradient-end)
   );
-  padding: 5px 25px;
+  padding: 5px 10px;
   transition: none;
 }
 
@@ -102,12 +102,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
   cursor: pointer;
 }
 
 .navbar-item a img {
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .navbar-item.active {
@@ -117,7 +117,7 @@
     var(--bg-gradient-active-end)
   );
   border-radius: 6px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
 }
 
 .navbar-item.active a img {
@@ -131,6 +131,7 @@
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  padding: 0 0;
   transition: flex-direction 0.5s ease, padding 0.5s ease;
 }
 
