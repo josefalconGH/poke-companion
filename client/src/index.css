@@ -5,6 +5,9 @@
 
 :root {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg-gradient-start: #505050;
+  --bg-gradient-end: #0a0a0a;
+  --navbar-link-color: #f4f4f5;
 }
 
 /* Hero CSS */
@@ -37,59 +40,57 @@
   z-index: 2; /* ensure hero image is on top of background */
 }
 
-/* Custom CSS for NavBar Positioning */
+/* NavBar CSS */
+.navbar {
+  background: linear-gradient(
+    to bottom,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
+  padding: 4px 16px;
+}
+
 .navbar-container {
-  position: relative; /* Ensures the positioning is relative to this element */
-  margin-top: -40px; /* Move the navbar upwards by 40px */
-  z-index: 10; /* Ensure the navbar stays above the hero image */
-  width: 90%; /* Ensures width is 90% of the container */
-  left: 50%; /* Position it centrally relative to its container */
-  transform: translateX(-50%); /* Center align it */
-  border-radius: 10px; /* Apply rounding to match Tailwind's rounded-lg */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* NavBar SVG custom rotation */
-.navbar-custom img {
-  transition: transform 0.3s ease;
+.navbar-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.navbar-custom img:hover {
-  transform: rotate(360deg);
+.navbar-item {
+  list-style: none;
 }
 
-/* Media Query */
-/* Footer - Desktop */
-@media (min-width: 480px) {
-  .footer-custom {
-    text-align: center;
-    margin-left: 0;
-  }
-
-  .footer-font {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
+.navbar-link {
+  font-weight: 600;
+  color: var(--navbar-link-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
 }
 
-/* NavBar - Desktop */
-@media (min-width: 768px) {
-  .navbar-custom {
-    flex-direction: row;
-    justify-content: space-between;
-    /* reduce space between navbar items */
-    padding: 0 4rem;
-  }
-
-  .navbar-cutsom-text {
-    padding-left: 8px;
-  }
+.navbar-link img {
+  transition: transform 0.2s ease;
 }
 
-/* SearchBar - Desktop */
-@media (min-width: 1035px) {
-  /* change flex direction of search bar to column */
-  .search-bar {
-    flex-direction: column;
-    align-items: center;
-  }
+.navbar-link img:hover {
+  /* enlarge slightly on hover */
+  transform: scale(1.2);
+}
+
+.navbar-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.navbar-text {
+  margin-top: 4px;
 }
