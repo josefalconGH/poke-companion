@@ -10,11 +10,12 @@
   --bg-drop-gradient-active-end: #5f5f5f;
 
   --border-color: #0a0a0a;
-  --bg-hover-color: #55555550;
+  --bg-hover-color: #70707050;
 
   --navbar-link-color: #f4f4f5;
 
   --white-text: #f4f4f5;
+  --grey-text: #9b9b9b;
   --yellow-text: #ffff8f;
 }
 
@@ -83,4 +84,22 @@
 .dropdown-item:hover {
   background-color: var(--bg-hover-color);
   color: var(--yellow-text);
+}
+
+/* Dropdown Divider CSS */
+.dropdown-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  color: var(--white-text);
+  background: var(--bg-drop-gradient-active-end);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.coming-soon-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
 }
