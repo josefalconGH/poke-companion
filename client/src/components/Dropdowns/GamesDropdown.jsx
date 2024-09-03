@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 
 export default function GamesDropdown({ isVisible }) {
   if (!isVisible) return null;
@@ -7,48 +6,48 @@ export default function GamesDropdown({ isVisible }) {
   return (
     <ul className="dropdown-menu" role="menu">
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 9">
-          Generation 9 (ScVi)
+        <a href="#" title="Generation 9 (ScVi)">
+          Generation 9
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 8">
-          Generation 8 (SwSh)
+        <a href="#" title="Generation 8 (SwSh)">
+          Generation 8
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 7">
-          Generation 7 (SuMo-USUM)
+        <a href="#" title="Generation 7 (SuMo-USUM)">
+          Generation 7
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 6">
-          Generation 6 (XY-ORAS)
+        <a href="#" title="Generation 6 (XY-ORAS)">
+          Generation 6
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 5">
-          Generation 5 (BW-B2W2)
+        <a href="#" title="Generation 5 (BW-B2W2)">
+          Generation 5
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 4">
-          Generation 4 (DP-Pt-HGSS)
+        <a href="#" title="Generation 4 (DP-Pt-HGSS)">
+          Generation 4
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 3">
-          Generation 3 (RS-E-FRLG)
+        <a href="#" title="Generation 3 (RS-E-FRLG)">
+          Generation 3
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 2">
-          Generation 2 (GS-C)
+        <a href="#" title="Generation 2 (GS-C)">
+          Generation 2
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="Generation 1">
-          Generation 1 (RB-Y)
+        <a href="#" title="Generation 1 (RB-Y)">
+          Generation 1
         </a>
       </li>
     </ul>

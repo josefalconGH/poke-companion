@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 
 export default function DataDropdown({ isVisible }) {
   if (!isVisible) return null;
@@ -43,7 +42,7 @@ export default function DataDropdown({ isVisible }) {
       </li>
       <li className="dropdown-item" role="menuitem">
         <a href="#" title="View Training (EVs)">
-          Training (EVs)
+          Training (EV)
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
