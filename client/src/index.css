@@ -174,10 +174,11 @@
 
 .footer-item {
   text-decoration-line: underline;
+  text-decoration-skip-ink: none;
   color: var(--white-text);
   font-weight: 700;
   display: inline-block;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .footer-item:hover {
