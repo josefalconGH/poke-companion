@@ -9,6 +9,8 @@ import GamesDropdown from "../Dropdowns/GamesDropdown";
 import WorldCSDropdown from "../Dropdowns/WorldCSDropdown";
 import LoginDropdown from "../Dropdowns/LoginDropdown";
 
+import "./style.css";
+
 export default function NavBar() {
   const [searchActive, setSearchActive] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
@@ -72,7 +74,7 @@ export default function NavBar() {
                 <span className="navbar-text">Games</span>
               </a>
               <div
-                className={`navbar-sub-menu ${
+                className={`navbar-sub-menu navbar-sub-menu-games ${
                   activeItem === "games" ? "visible" : ""
                 }`}
               >
@@ -90,7 +92,7 @@ export default function NavBar() {
                 <span className="navbar-text">World CS</span>
               </a>
               <div
-                className={`navbar-sub-menu ${
+                className={`navbar-sub-menu navbar-sub-menu-world-cs ${
                   activeItem === "world cs" ? "visible" : ""
                 }`}
               >
@@ -108,7 +110,7 @@ export default function NavBar() {
                 <span className="navbar-text">Login</span>
               </a>
               <div
-                className={`navbar-sub-menu ${
+                className={`navbar-sub-menu navbar-sub-menu-login ${
                   activeItem === "login" ? "visible" : ""
                 }`}
               >
