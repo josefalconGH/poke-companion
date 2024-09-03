@@ -7,7 +7,7 @@ export default function WorldCSDropdown({ isVisible }) {
     <ul className="dropdown-menu" role="menu">
       <li className="dropdown-item" role="menuitem">
         <a href="#" title="World Coronation Series">
-          World CS
+          World Coronation Series
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
