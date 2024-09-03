@@ -1,4 +1,5 @@
 import React from "react";
+import comingSoon from "../../assets/icons/coming-soon.svg";
 
 export default function DataDropdown({ isVisible }) {
   if (!isVisible) return null;
@@ -9,6 +10,11 @@ export default function DataDropdown({ isVisible }) {
         <a href="#" title="View Pokédex">
           Pokédex
         </a>
+      </li>
+      {/* Coming Soon Divider */}
+      <li className="dropdown-divider" role="separator">
+        <span>Coming Soon -</span>
+        <img src={comingSoon} alt="Coming Soon" className="coming-soon-icon" />
       </li>
       <li className="dropdown-item" role="menuitem">
         <a href="#" title="View Moves">
@@ -42,7 +48,7 @@ export default function DataDropdown({ isVisible }) {
       </li>
       <li className="dropdown-item" role="menuitem">
         <a href="#" title="View Training (EVs)">
-          Training (EV)
+          Training (EVs)
         </a>
       </li>
       <li className="dropdown-item" role="menuitem">
