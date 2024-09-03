@@ -1,0 +1,68 @@
+:root {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bg-gradient-start: #505050;
+  --bg-gradient-end: #0a0a0a;
+
+  --bg-gradient-active-start: #30303020;
+  --bg-gradient-active-end: #000000db;
+
+  --bg-drop-gradient-active-start: #080808;
+  --bg-drop-gradient-active-end: #5f5f5f;
+
+  --border-color: #0a0a0a;
+  --bg-hover-color: #55555550;
+
+  --navbar-link-color: #f4f4f5;
+
+  --white-text: #f4f4f5;
+  --yellow-text: #ffff8f;
+}
+
+/* NavBar Dropdown CSS */
+.navbar-sub-menu {
+  position: absolute;
+  top: 120%; /* Position it below the navbar */
+  left: 50%; /* Start the dropdown in the center horizontally */
+  transform: translateX(-50%); /* Center the dropdown on the viewport */
+  background: var(--bg-drop-gradient-active-start);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  width: calc(100vw - 10px); /* Full width minus padding for both sides */
+  max-width: 100%; /* Ensure it doesn't exceed viewport width */
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+  z-index: 4;
+  display: none;
+}
+
+.navbar-sub-menu.visible {
+  display: block;
+}
+
+@media (min-width: 880px) {
+  .navbar-sub-menu {
+    width: calc(100vw - 10px); /* Maintain full width minus padding */
+    min-width: 150px; /* Ensure a minimum width for smaller screens */
+    max-width: 100%; /* Make sure it doesn’t overflow the screen */
+  }
+}
+
+.dropdown-item {
+  font-weight: 600;
+  color: var(--white-text);
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-hover-color);
+  color: var(--yellow-text);
+}
+
+@media (max-width: 880px) {
+  .dropdown-item {
+    font-size: 0.8rem;
+  }
+}
