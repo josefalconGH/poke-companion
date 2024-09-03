@@ -8,17 +8,9 @@
 }
 
 body {
-  background-color: var(
-    --neutral-grey
-  ); /* Base color is set to a neutral grey for a subtle background */
-  background-image: repeating-linear-gradient(
-    135deg,
-    /* Diagonal stripe pattern with subtle Pokémon colors */
-      var(--light-overlay) 0,
-    var(--light-overlay) 15px,
-    var(--dark-overlay) 15px,
-    var(--dark-overlay) 30px
-  );
-  background-size: cover, 40px 40px; /* Cover the whole background with radial gradient, 40px stripes for the pattern */
-  background-blend-mode: multiply; /* Blend the pattern and the gradient for a cohesive look */
+  background-color: var(--neutral-grey);
+  background-size: cover, 40px 40px;
+  background-blend-mode: multiply;
+  transition: background-color 0.5s ease, background-image 0.5s ease;
+  background-image: none;
 }
