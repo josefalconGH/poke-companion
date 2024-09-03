@@ -21,16 +21,14 @@
 /* NavBar Dropdown CSS */
 .navbar-sub-menu {
   position: absolute;
-  top: 120%; /* Position it below the navbar */
-  left: 50%; /* Start the dropdown in the center horizontally */
-  transform: translateX(-50%); /* Center the dropdown on the viewport */
+  top: 120%;
+  left: 0;
   background: var(--bg-drop-gradient-active-start);
   border: 2px solid var(--border-color);
   border-radius: 4px;
   padding: 0;
   margin: 0;
-  width: calc(100vw - 10px); /* Full width minus padding for both sides */
-  max-width: 100%; /* Ensure it doesn't exceed viewport width */
+  width: calc(100vw - 20px);
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
   z-index: 4;
   display: none;
@@ -42,9 +40,35 @@
 
 @media (min-width: 880px) {
   .navbar-sub-menu {
-    width: calc(100vw - 10px); /* Maintain full width minus padding */
-    min-width: 150px; /* Ensure a minimum width for smaller screens */
-    max-width: 100%; /* Make sure it doesn’t overflow the screen */
+    top: 130%;
+  }
+}
+
+@media (min-width: 940px) {
+  .navbar-sub-menu {
+    width: calc(100vw - 10px);
+    min-width: 150px;
+    max-width: 100%;
+  }
+}
+
+.navbar-sub-menu-games {
+  left: -100%;
+}
+
+.navbar-sub-menu-world-cs {
+  left: -200%;
+}
+
+.navbar-sub-menu-login {
+  left: -300%;
+}
+
+@media (min-width: 940px) {
+  .navbar-sub-menu-games,
+  .navbar-sub-menu-world-cs,
+  .navbar-sub-menu-login {
+    left: 0;
   }
 }
 
@@ -59,10 +83,4 @@
 .dropdown-item:hover {
   background-color: var(--bg-hover-color);
   color: var(--yellow-text);
-}
-
-@media (max-width: 880px) {
-  .dropdown-item {
-    font-size: 0.825rem;
-  }
 }
