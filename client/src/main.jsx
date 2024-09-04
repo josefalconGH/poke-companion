@@ -1,6 +1,6 @@
 // Purpose: main.jsx file to start the client
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Homepage from "./pages/Homepage";
 import Pokedex from "./pages/Pokedex";
