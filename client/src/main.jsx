@@ -3,6 +3,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.jsx";
 import Homepage from "./pages/Homepage";
+import Pokedex from "./pages/Pokedex";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./index.css";
@@ -16,6 +18,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Homepage />,
+      },
+      {
+        path: "/pokedex",
+        element: <Pokedex />,
       },
     ],
   },
