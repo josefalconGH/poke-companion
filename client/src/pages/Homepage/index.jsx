@@ -1,5 +1,6 @@
 // Purpose: Homepage component to render the homepage
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function Homepage() {
@@ -20,9 +21,11 @@ export default function Homepage() {
         </p>
         <p className="padding-bottom">
           Current planned features include:{" "}
-          <a href="#" className="hover:underline" aria-label="Pokédex entries">
-            Pokédex entries
-          </a>
+          <Link to="/pokedex" title="View Pokédex">
+            <a className="hover:underline" aria-label="Pokédex entries">
+              Pokédex entries
+            </a>
+          </Link>
           ,{" "}
           <a
             href="#"
