@@ -6,7 +6,7 @@ export default function Pokedex() {
   return (
     <main className="main-container">
       <header>
-        <h1 className="header">Pokédex - Pokémon Database</h1>
+        <h1 className="header">Pokémon Companion - Pokédex</h1>
       </header>
     </main>
   );
