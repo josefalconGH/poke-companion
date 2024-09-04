@@ -6,17 +6,19 @@ export default function Homepage() {
   return (
     <main className="main-container">
       <header>
-        <h1 className="header-container font-extrabold flex justify-center text-center m-2 px-2">
+        <h1 className="header">
           Pokémon Companion - Updates &amp; Development
         </h1>
       </header>
-      <section className="panel-home my-4 mx-2">
-        <p className="pb-2">
-          <span className="font-bold">Welcome to the PokéCompanion!</span> This
-          application is currently under development and will be updated with
-          new features and functionalities as they are developed.
+      <section className="panel-home">
+        <p className="padding-bottom">
+          <span className="panel-home-span">
+            Welcome to the PokémonCompanion!
+          </span>{" "}
+          This application is currently under development and will be updated
+          with new features and functionalities as they are developed.
         </p>
-        <p className="pb-2">
+        <p className="padding-bottom">
           Current planned features include:{" "}
           <a href="#" className="hover:underline" aria-label="Pokédex entries">
             Pokédex entries

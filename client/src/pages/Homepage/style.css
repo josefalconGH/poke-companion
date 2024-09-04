@@ -4,13 +4,6 @@
   --panel-link-color: #0063cc;
 }
 
-/* Header CSS */
-.header-container {
-  font-size: 1.75rem;
-  line-height: 1.2;
-  overflow-wrap: break-word;
-}
-
 /* Main CSS */
 .main-container {
   margin: 1.25rem auto 2rem;
@@ -25,12 +18,29 @@
   }
 }
 
+/* Header CSS */
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
 /* Panel CSS */
 .panel-home {
   background-color: var(--panel-bg-color);
   color: var(--panel-text-color);
   display: block;
+  margin-top: 1rem;
   margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   padding: 1rem;
   border-radius: 6px;
 }
@@ -38,4 +48,12 @@
 .panel-home a {
   color: var(--panel-link-color);
   text-decoration: none;
+}
+
+.panel-home p.padding-bottom {
+  padding-bottom: 0.5rem;
+}
+
+.panel-home-span {
+  font-weight: 700;
 }
