@@ -7,7 +7,7 @@ export default function DataDropdown({ isVisible }) {
   return (
     <ul className="dropdown-menu" role="menu">
       <li className="dropdown-item" role="menuitem">
-        <a href="#" title="View Pokédex">
+        <a href="/pokedex" title="View Pokédex">
           Pokédex
         </a>
       </li>
