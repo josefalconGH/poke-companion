@@ -15,6 +15,7 @@
 @media (min-width: 1260px) {
   .main-container {
     border-radius: 6px;
+    max-width: 1260px;
   }
 }
 
@@ -30,4 +31,34 @@
   font-weight: 800;
   line-height: 1.2;
   overflow-wrap: break-word;
+}
+
+/* Panel CSS */
+.panel-pokedex {
+  background-color: var(--panel-bg-color);
+  color: var(--panel-text-color);
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.panel-pokedex a {
+  color: var(--panel-link-color);
+  text-decoration: none;
+}
+
+.panel-pokedex p.padding-bottom {
+  padding-bottom: 0.5rem;
+}
+
+.panel-pokedex-span {
+  font-weight: 700;
+}
+
+.panel-pokedex-span span.underline {
+  cursor: pointer;
 }
