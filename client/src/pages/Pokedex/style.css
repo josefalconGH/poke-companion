@@ -3,3 +3,31 @@
   --panel-text-color: #333;
   --panel-link-color: #0063cc;
 }
+
+/* Main CSS */
+.main-container {
+  margin: 1.25rem auto 2rem;
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  background-color: #fff;
+}
+
+@media (min-width: 1260px) {
+  .main-container {
+    border-radius: 6px;
+  }
+}
+
+/* Header CSS */
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
