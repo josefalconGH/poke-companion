@@ -7,10 +7,12 @@
   --dark-overlay: rgba(0, 0, 0, 0.1);
 }
 
+html,
 body {
   background-color: var(--neutral-grey);
   background-size: cover, 40px 40px;
   background-blend-mode: multiply;
   transition: background-color 0.5s ease, background-image 0.5s ease;
   background-image: none;
+  overflow-y: auto;
 }
