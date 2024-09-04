@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import comingSoon from "../../assets/icons/coming-soon.svg";
 
 export default function DataDropdown({ isVisible }) {
@@ -6,11 +7,11 @@ export default function DataDropdown({ isVisible }) {
 
   return (
     <ul className="dropdown-menu" role="menu">
-      <li className="dropdown-item" role="menuitem">
-        <a href="/pokedex" title="View Pokédex">
-          Pokédex
-        </a>
-      </li>
+      <Link to="/pokedex" title="View Pokédex">
+        <li className="dropdown-item" role="menuitem">
+          <a title="View Pokédex">Pokédex</a>
+        </li>
+      </Link>
       {/* Coming Soon Divider */}
       <li className="dropdown-divider" role="separator">
         <span>Coming Soon -</span>
