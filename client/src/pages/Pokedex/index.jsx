@@ -45,8 +45,8 @@ const pokemonTypes = [
 ];
 
 // reusable type icon component
-const TypeIcon = ({ name, icon, onClick }) => (
-  <div className={`icon ${name.toLowerCase()}`}>
+const TypeIcon = ({ name, icon, onClick, className }) => (
+  <div className={`icon ${name.toLowerCase()} ${className || ""}`}>
     <img src={icon} alt={name} onClick={onClick} />
   </div>
 );
@@ -118,46 +118,96 @@ export default function Pokedex() {
         </div>
       </section>
       <section className="pokedex-table-container">
-        <table className="pokedex-table">
-          <thead>
+        <table className="pokedex-table sticky-header block-wide">
+          <thead className="table-header">
             <tr>
-              <th>ID</th>
-              <th>Sprite</th>
-              <th>Name</th>
-              <th>Type</th>
-              <th colSpan="6">Base Stats</th>
+              <th>
+                <div className="sortwrap cell-header">ID</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Sprite</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Name</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Type</div>
+              </th>
+              <th colSpan="7">
+                <div className="sortwrap cell-header">Base Stats</div>
+              </th>
             </tr>
             <tr>
               <th colSpan="4"></th>
-              <th>HP</th>
-              <th>Att</th>
-              <th>Def</th>
-              <th>Sp. Att</th>
-              <th>Sp. Def</th>
-              <th>Spd</th>
+              <th>
+                <div className="sortwrap cell-header">HP</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Attack</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Defense</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Sp. Atk</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Sp. Def</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Speed</div>
+              </th>
+              <th>
+                <div className="sortwrap cell-header">Total</div>
+              </th>
             </tr>
           </thead>
           <tbody>
             {pokemonData.map((pokemon) => (
               <tr key={pokemon.id}>
-                <td>#{String(pokemon.id).padStart(4, "0")}</td>
-                <td>
+                <td className="cell-num cell-start">
+                  #{String(pokemon.id).padStart(4, "0")}
+                </td>
+                <td className="cell-sprite">
                   <img
                     src={pokemon.sprite}
                     alt={pokemon.name}
-                    className="pokemon-sprite"
+                    className="pokemon-sprite pokemon-sprite-fixed"
                   />
                 </td>
-                <td>
-                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                <td class="pokemon-td-name">
+                  <a className="pokemon-name">
+                    {pokemon.name.charAt(0).toUpperCase() +
+                      pokemon.name.slice(1)}
+                  </a>
                 </td>
-                <td>{pokemon.type.join(" / ")}</td>
-                <td>{pokemon.hp}</td>
-                <td>{pokemon.attack}</td>
-                <td>{pokemon.defense}</td>
-                <td>{pokemon.special_attack}</td>
-                <td>{pokemon.special_defense}</td>
-                <td>{pokemon.speed}</td>
+                <td>
+                  <a className="type-icon">
+                    {/* Render Type Icons with smaller size using small-icon class */}
+                    {pokemon.type.map((type) => {
+                      const typeData = pokemonTypes.find(
+                        (typeObj) =>
+                          typeObj.name.toLowerCase() === type.toLowerCase()
+                      );
+                      return (
+                        <TypeIcon
+                          key={type}
+                          name={type}
+                          icon={typeData.icon}
+                          onClick={() => handleSortByType(type.toLowerCase())}
+                          className="small-icon" // Apply the smaller size class
+                        />
+                      );
+                    })}
+                  </a>
+                </td>
+                <td className="stat-num">{pokemon.hp}</td>
+                <td className="stat-num">{pokemon.attack}</td>
+                <td className="stat-num">{pokemon.defense}</td>
+                <td className="stat-num">{pokemon.special_attack}</td>
+                <td className="stat-num">{pokemon.special_defense}</td>
+                <td className="stat-num">{pokemon.speed}</td>
+                <td className="stat-num stat-total">{pokemon.total}</td>
               </tr>
             ))}
           </tbody>
