@@ -45,16 +45,18 @@ const pokemonTypes = [
 ];
 
 // reusable type icon component
-const TypeIcon = ({ name, icon, onClick, className }) => (
+const TypeIcon = React.memo(({ name, icon, onClick, className }) => (
   <div className={`icon ${name.toLowerCase()} ${className || ""}`}>
     <img src={icon} alt={name} onClick={onClick} />
   </div>
-);
+));
 
 export default function Pokedex() {
   const [pokemonData, setPokemonData] = useState([]);
+  const [sortedPokemonData, setSortedPokemonData] = useState(pokemonData);
 
   useEffect(() => {
+    // fetch the full list of Pokémon when the component mounts
     fetch("/api/pokedex")
       .then((response) => {
         if (!response.ok) {
@@ -62,13 +64,24 @@ export default function Pokedex() {
         }
         return response.json();
       })
-      .then((data) => setPokemonData(data))
+      .then((data) => {
+        setPokemonData(data);
+        setSortedPokemonData(data);
+      })
       .catch((error) => console.error("Error fetching Pokémon data:", error));
   }, []);
 
   const handleSortByType = (type) => {
     console.log(`Sorting by type: ${type}`);
-    // sorting logic here
+    if (type === "all") {
+      // reset to all Pokémon if 'all' is selected
+      setSortedPokemonData(pokemonData);
+    } else {
+      const filteredData = pokemonData.filter((pokemon) =>
+        pokemon.type.some((pokemonType) => pokemonType.toLowerCase() === type)
+      );
+      setSortedPokemonData(filteredData);
+    }
   };
 
   return (
@@ -105,7 +118,15 @@ export default function Pokedex() {
         </p>
       </section>
       <section id="type-filter" className="panel-pokedex panel-filter">
-        <p className="panel-pokedex-span">Filter by type:</p>
+        <div className="filter-header">
+          <p className="panel-pokedex-span">Filter by type:</p>
+          <button
+            onClick={() => handleSortByType("all")}
+            className="reset-filter panel-pokedex-span"
+          >
+            Remove Filter
+          </button>
+        </div>
         <div className="wrapper">
           {pokemonTypes.map(({ name, icon }) => (
             <TypeIcon
@@ -163,19 +184,20 @@ export default function Pokedex() {
             </tr>
           </thead>
           <tbody>
-            {pokemonData.map((pokemon) => (
+            {sortedPokemonData.map((pokemon) => (
               <tr key={pokemon.id}>
                 <td className="cell-num cell-start">
                   #{String(pokemon.id).padStart(4, "0")}
                 </td>
                 <td className="cell-sprite">
                   <img
+                    loading="lazy"
                     src={pokemon.sprite}
-                    alt={pokemon.name}
+                    alt={`${pokemon.name} official sprite`}
                     className="pokemon-sprite pokemon-sprite-fixed"
                   />
                 </td>
-                <td class="pokemon-td-name">
+                <td className="pokemon-td-name">
                   <a className="pokemon-name">
                     {pokemon.name.charAt(0).toUpperCase() +
                       pokemon.name.slice(1)}
@@ -183,7 +205,6 @@ export default function Pokedex() {
                 </td>
                 <td>
                   <a className="type-icon">
-                    {/* Render Type Icons with smaller size using small-icon class */}
                     {pokemon.type.map((type) => {
                       const typeData = pokemonTypes.find(
                         (typeObj) =>
@@ -195,7 +216,7 @@ export default function Pokedex() {
                           name={type}
                           icon={typeData.icon}
                           onClick={() => handleSortByType(type.toLowerCase())}
-                          className="small-icon" // Apply the smaller size class
+                          className="small-icon"
                         />
                       );
                     })}
