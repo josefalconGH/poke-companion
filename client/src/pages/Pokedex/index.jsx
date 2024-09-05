@@ -55,7 +55,7 @@ export default function Pokedex() {
   const [pokemonData, setPokemonData] = useState([]);
 
   useEffect(() => {
-    fetch("/api/pokemon")
+    fetch("/api/pokedex")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch Pokémon data");

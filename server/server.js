@@ -48,12 +48,12 @@ const startApolloServer = async () => {
   }
 
   // serve Pokémon data from data-pokemon.json
-  app.get("/api/pokemon", (req, res) => {
-    const filePath = path.join(__dirname, "seeds", "data-pokemon.json");
+  app.get("/api/pokedex", (req, res) => {
+    const filePath = path.join(__dirname, "seeds", "data-pokedex.json");
 
     fs.readFile(filePath, "utf8", (err, data) => {
       if (err) {
-        console.error("Error reading data-pokemon.json:", err);
+        console.error("Error reading data-pokedex.json:", err);
         return res.status(500).json({ error: "Failed to load Pokémon data" });
       }
 
