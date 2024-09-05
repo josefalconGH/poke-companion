@@ -107,14 +107,11 @@ html {
 /* Filter Header CSS */
 .filter-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin-bottom: 12px;
 }
 
 .reset-filter {
-  border-radius: 5px;
-  padding: 0 8px;
   cursor: pointer;
   color: var(--panel-text-color);
 }
