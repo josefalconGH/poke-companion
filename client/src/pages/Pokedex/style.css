@@ -104,6 +104,25 @@ html {
   }
 } */
 
+/* Filter Header CSS */
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.reset-filter {
+  border-radius: 5px;
+  padding: 0 8px;
+  cursor: pointer;
+  color: var(--panel-text-color);
+}
+
+/* increase scale on hover */
+.reset-filter:hover {
+  transform: scale(0.9);
+}
 .icon {
   border-radius: 100%;
   height: 40px;
