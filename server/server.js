@@ -41,7 +41,23 @@ const startApolloServer = async () => {
   // serve Pokémon data from data-pokemon.json
   app.get("/api/pokedex", async (req, res) => {
     try {
-      const pokemonData = await Pokedex.find({});
+      // fetch Pokédex data only necessary for pokedex-table
+      const pokemonData = await Pokedex.find(
+        {},
+        {
+          name: 1,
+          id: 1,
+          sprite: 1,
+          type: 1,
+          hp: 1,
+          attack: 1,
+          defense: 1,
+          special_attack: 1,
+          special_defense: 1,
+          speed: 1,
+          total: 1,
+        }
+      );
       res.json(pokemonData);
     } catch (err) {
       console.error("Error fetching Pokémon data from MongoDB:", err);
