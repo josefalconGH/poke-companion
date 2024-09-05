@@ -1,5 +1,5 @@
 // Prupose: Define the typeDefs for the GraphQL schema
-const { GraphQLScalarType, Kind } = require("graphql");
+import { GraphQLScalarType, Kind } from "graphql";
 
 const typeDefs = `
   type Auth {
@@ -28,4 +28,4 @@ const typeDefs = `
   }
 `;
 
-module.exports = typeDefs;
+export default typeDefs;

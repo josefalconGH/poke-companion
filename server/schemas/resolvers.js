@@ -1,19 +1,16 @@
 // Purpose: Export the resolvers
-const {
-  User,
-  Pokemon,
-  GenEvoChain,
-  PokemonLocations,
-  TypeEffectiveness,
-  Items,
-  Moves,
-} = require("../models");
-const { signToken, AuthenticationError } = require("../utils/auth");
-const { ObjectId } = require("mongodb");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+import { User } from "../models/index.js";
+import {
+  signToken,
+  AuthenticationError,
+  authMiddleware,
+} from "../utils/auth.js";
+import { ObjectId } from "mongodb";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
-require("dotenv").config();
+dotenv.config();
 
 const resolvers = {
   Query: {
@@ -81,4 +78,4 @@ const resolvers = {
 };
 
 // export resolvers
-module.exports = resolvers;
+export default resolvers;
