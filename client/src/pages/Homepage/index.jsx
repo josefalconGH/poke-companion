@@ -21,10 +21,12 @@ export default function Homepage() {
         </p>
         <p className="padding-bottom">
           Current planned features include:{" "}
-          <Link to="/pokedex" title="View Pokédex">
-            <a className="hover:underline" aria-label="Pokédex entries">
-              Pokédex entries
-            </a>
+          <Link
+            to="/pokedex"
+            className="hover:underline"
+            aria-label="Pokédex entries"
+          >
+            Pokédex entries
           </Link>
           ,{" "}
           <a
