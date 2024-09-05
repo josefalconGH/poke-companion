@@ -9,7 +9,7 @@ export default function DataDropdown({ isVisible }) {
     <ul className="dropdown-menu" role="menu">
       <Link to="/pokedex" title="View Pokédex">
         <li className="dropdown-item" role="menuitem">
-          <a title="View Pokédex">Pokédex</a>
+          Pokédex
         </li>
       </Link>
       {/* Coming Soon Divider */}
