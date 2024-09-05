@@ -59,6 +59,149 @@
   font-weight: 700;
 }
 
-.panel-pokedex-span span.underline {
+.panel-pokedex-span a {
   cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Type Icon Filter CSS */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 1260px;
+  margin: 10px auto;
+  margin-bottom: 0;
+}
+
+@media (min-width: 620px) {
+  .panel-filter {
+    flex: 0 0 120px;
+    max-width: 160px;
+    display: block;
+    order: 1;
+  }
+
+  .panel-filter .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+}
+
+.icon {
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  margin: auto;
+  transition: 200ms all;
+  display: flex; /* Flexbox to center the image inside the icon */
+  justify-content: center;
+  align-items: center;
+}
+
+.icon:hover {
+  filter: saturate(200%);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.icon img {
+  height: 60%;
+  width: 60%;
+  margin: 20%;
+}
+
+.bug {
+  background: #92bc2c;
+  box-shadow: 0 0 10px #92bc2c;
+}
+
+.dark {
+  background: #595761;
+  box-shadow: 0 0 10px #595761;
+}
+
+.dragon {
+  background: #0c69c8;
+  box-shadow: 0 0 10px #0c69c8;
+}
+
+.electric {
+  background: #f2d94e;
+  box-shadow: 0 0 10px #f2d94e;
+}
+
+.fire {
+  background: #fba54c;
+  box-shadow: 0 0 10px #fba54c;
+}
+
+.fairy {
+  background: #ee90e6;
+  box-shadow: 0 0 10px #ee90e6;
+}
+
+.fighting {
+  background: #d3425f;
+  box-shadow: 0 0 10px #d3425f;
+}
+
+.flying {
+  background: #a1bbec;
+  box-shadow: 0 0 10px #a1bbec;
+}
+
+.ghost {
+  background: #5f6dbc;
+  box-shadow: 0 0 10px #5f6dbc;
+}
+
+.grass {
+  background: #5fbd58;
+  box-shadow: 0 0 10px #5fbd58;
+}
+
+.ground {
+  background: #da7c4d;
+  box-shadow: 0 0 10px #da7c4d;
+}
+
+.ice {
+  background: #75d0c1;
+  box-shadow: 0 0 10px #75d0c1;
+}
+
+.normal {
+  background: #a0a29f;
+  box-shadow: 0 0 10px #a0a29f;
+}
+
+.poison {
+  background: #b763cf;
+  box-shadow: 0 0 10px #b763cf;
+}
+
+.psychic {
+  background: #fa8581;
+  box-shadow: 0 0 10px #fa8581;
+}
+
+.rock {
+  background: #c9bb8a;
+  box-shadow: 0 0 10px #c9bb8a;
+}
+
+.steel {
+  background: #5695a3;
+  box-shadow: 0 0 10px #5695a3;
+}
+
+.water {
+  background: #539ddf;
+  box-shadow: 0 0 10px #539ddf;
 }
