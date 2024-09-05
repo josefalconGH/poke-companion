@@ -1,12 +1,17 @@
 // Purpose: server.js file to start the server and connect to the database
-const express = require("express");
-const { ApolloServer } = require("@apollo/server");
-const { expressMiddleware } = require("@apollo/server/express4");
-const path = require("path");
-const fs = require("fs");
-const { typeDefs, resolvers } = require("./schemas");
-const db = require("./config/connection");
-const cors = require("cors");
+import express from "express";
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
+import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
+import { typeDefs, resolvers } from "./schemas/index.js";
+import db from "./config/connection.js";
+import cors from "cors";
+
+// set up __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
