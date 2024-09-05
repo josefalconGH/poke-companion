@@ -1,5 +1,5 @@
 // Purpose: Pokédex component to render the homepage
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 
 import {
@@ -52,6 +52,20 @@ const TypeIcon = ({ name, icon, onClick }) => (
 );
 
 export default function Pokedex() {
+  const [pokemonData, setPokemonData] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/pokemon")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch Pokémon data");
+        }
+        return response.json();
+      })
+      .then((data) => setPokemonData(data))
+      .catch((error) => console.error("Error fetching Pokémon data:", error));
+  }, []);
+
   const handleSortByType = (type) => {
     console.log(`Sorting by type: ${type}`);
     // sorting logic here
@@ -69,7 +83,7 @@ export default function Pokedex() {
           contains information on all Pokémon species from the Pokémon series.
           Inside of the Pokédex, you can find various stats and information on
           each Pokémon. With more than 1,000 Pokémon species, click on a
-          Pokémon's name to get a in-depth look at its Pokédex data, including
+          Pokémon's name to get an in-depth look at its Pokédex data, including
           descriptions and sprites from various games, as well as the Pokémon's
           abilities, evolution lines, moves, and more!
         </p>
@@ -102,6 +116,52 @@ export default function Pokedex() {
             />
           ))}
         </div>
+      </section>
+      <section className="pokedex-table-container">
+        <table className="pokedex-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Sprite</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th colSpan="6">Base Stats</th>
+            </tr>
+            <tr>
+              <th colSpan="4"></th>
+              <th>HP</th>
+              <th>Att</th>
+              <th>Def</th>
+              <th>Sp. Att</th>
+              <th>Sp. Def</th>
+              <th>Spd</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pokemonData.map((pokemon) => (
+              <tr key={pokemon.id}>
+                <td>#{String(pokemon.id).padStart(4, "0")}</td>
+                <td>
+                  <img
+                    src={pokemon.sprite}
+                    alt={pokemon.name}
+                    className="pokemon-sprite"
+                  />
+                </td>
+                <td>
+                  {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                </td>
+                <td>{pokemon.type.join(" / ")}</td>
+                <td>{pokemon.hp}</td>
+                <td>{pokemon.attack}</td>
+                <td>{pokemon.defense}</td>
+                <td>{pokemon.special_attack}</td>
+                <td>{pokemon.special_defense}</td>
+                <td>{pokemon.speed}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
     </main>
   );
