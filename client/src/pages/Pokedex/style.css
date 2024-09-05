@@ -107,9 +107,9 @@ html {
 /* Filter Header CSS */
 .filter-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .reset-filter {
@@ -119,10 +119,10 @@ html {
   color: var(--panel-text-color);
 }
 
-/* increase scale on hover */
 .reset-filter:hover {
   transform: scale(0.9);
 }
+
 .icon {
   border-radius: 100%;
   height: 40px;
