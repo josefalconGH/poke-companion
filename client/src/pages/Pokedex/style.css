@@ -4,6 +4,11 @@
   --panel-link-color: #0063cc;
 }
 
+/* HTML CSS */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Main CSS */
 .main-container {
   margin: 1.25rem auto 2rem;
