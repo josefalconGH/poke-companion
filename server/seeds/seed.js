@@ -16,7 +16,7 @@ import db from "../config/connection.js";
 db.once("open", async () => {
   try {
     // clean the database for the Pokedex collection
-    await cleanDB("Pokedex");
+    await cleanDB(Pokedex);
 
     // load the data-pokedex.json file
     const pokedexDataPath = path.join(__dirname, "data-pokedex.json");
@@ -27,7 +27,7 @@ db.once("open", async () => {
     console.log("Pokedex data successfully seeded!");
 
     // close the database connection after seeding
-    db.close();
+    mongoose.connection.close();
   } catch (err) {
     console.error("Error seeding the database:", err);
     throw new Error(err);
