@@ -3,11 +3,11 @@ import express from "express";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import path from "path";
-import fs from "fs";
 import { fileURLToPath } from "url";
 import { typeDefs, resolvers } from "./schemas/index.js";
 import db from "./config/connection.js";
 import cors from "cors";
+import Pokedex from "./models/Pokedex.js";
 
 // set up __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -48,23 +48,14 @@ const startApolloServer = async () => {
   }
 
   // serve Pokémon data from data-pokemon.json
-  app.get("/api/pokedex", (req, res) => {
-    const filePath = path.join(__dirname, "seeds", "data-pokedex.json");
-
-    fs.readFile(filePath, "utf8", (err, data) => {
-      if (err) {
-        console.error("Error reading data-pokedex.json:", err);
-        return res.status(500).json({ error: "Failed to load Pokémon data" });
-      }
-
-      try {
-        const pokemonData = JSON.parse(data);
-        res.json(pokemonData);
-      } catch (parseErr) {
-        console.error("Error parsing JSON:", parseErr);
-        res.status(500).json({ error: "Invalid JSON format" });
-      }
-    });
+  app.get("/api/pokedex", async (req, res) => {
+    try {
+      const pokemonData = await Pokedex.find({});
+      res.json(pokemonData);
+    } catch (err) {
+      console.error("Error fetching Pokémon data from MongoDB:", err);
+      res.status(500).json({ error: "Failed to load Pokémon data" });
+    }
   });
 
   db.once("open", () => {
