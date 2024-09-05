@@ -1,0 +1,19 @@
+// Purpose: Export all type icons for use in other components
+export { default as bugIcon } from "./bug.svg";
+export { default as darkIcon } from "./dark.svg";
+export { default as dragonIcon } from "./dragon.svg";
+export { default as electricIcon } from "./electric.svg";
+export { default as fairyIcon } from "./fairy.svg";
+export { default as fightingIcon } from "./fighting.svg";
+export { default as fireIcon } from "./fire.svg";
+export { default as flyingIcon } from "./flying.svg";
+export { default as ghostIcon } from "./ghost.svg";
+export { default as grassIcon } from "./grass.svg";
+export { default as groundIcon } from "./ground.svg";
+export { default as iceIcon } from "./ice.svg";
+export { default as normalIcon } from "./normal.svg";
+export { default as poisonIcon } from "./poison.svg";
+export { default as psychicIcon } from "./psychic.svg";
+export { default as rockIcon } from "./rock.svg";
+export { default as steelIcon } from "./steel.svg";
+export { default as waterIcon } from "./water.svg";
