@@ -12,24 +12,51 @@ import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import LoadingAnimation from "./components/Loading/LoadingAnimation";
+import heroImage from "./assets/images/poke-companion-sm.png";
 
 import "../src/index.css";
 
 function App() {
-  // State to manage loading
+  // state to manage loading
   const [isLoading, setIsLoading] = useState(true);
+  const [isContentReady, setIsContentReady] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [fadeIn, setFadeIn] = useState(false);
 
+  // function to preload image
+  const preloadImage = (src, callback) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = callback;
+  };
+
   useEffect(() => {
-    setTimeout(() => {
-      setFadeOut(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        setFadeIn(true);
-      }, 500);
-    }, 2000);
+    const hasVisited = localStorage.getItem("hasVisited");
+
+    if (!hasVisited) {
+      // preload hero image for first-time visitors
+      preloadImage(heroImage, () => {
+        setIsContentReady(true);
+      });
+    } else {
+      // skip loading animation if they have visited before
+      setIsLoading(false);
+      setFadeIn(true);
+    }
   }, []);
+
+  useEffect(() => {
+    if (isContentReady) {
+      setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => {
+          setIsLoading(false);
+          setFadeIn(true);
+          localStorage.setItem("hasVisited", "true"); // mark as visited
+        }, 500);
+      }, 2000);
+    }
+  }, [isContentReady]);
 
   useEffect(() => {
     if (!isLoading) {
