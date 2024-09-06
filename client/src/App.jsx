@@ -8,6 +8,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -77,31 +78,33 @@ function App() {
   }, [isLoading]);
 
   return (
-    <div
-      className={`min-h-screen flex flex-col ${isLoading ? "bg-loading" : ""} ${
-        fadeIn ? "fade-in" : ""
-      }`}
-      style={{
-        backgroundColor: isLoading ? "#bebebe" : "transparent",
-      }}
-    >
-      {isLoading ? (
-        <div className={`loading-wrapper ${fadeOut ? "fade-out" : ""}`}>
-          <LoadingAnimation />
-        </div>
-      ) : (
-        <>
-          <header>
-            <Hero />
-            <NavBar />
-          </header>
-          <main className="flex-grow flex justify-center">
-            <Outlet />
-          </main>
-          <Footer />
-        </>
-      )}
-    </div>
+    <HelmetProvider>
+      <div
+        className={`min-h-screen flex flex-col ${
+          isLoading ? "bg-loading" : ""
+        } ${fadeIn ? "fade-in" : ""}`}
+        style={{
+          backgroundColor: isLoading ? "#bebebe" : "transparent",
+        }}
+      >
+        {isLoading ? (
+          <div className={`loading-wrapper ${fadeOut ? "fade-out" : ""}`}>
+            <LoadingAnimation />
+          </div>
+        ) : (
+          <>
+            <header>
+              <Hero />
+              <NavBar />
+            </header>
+            <main className="flex-grow flex justify-center">
+              <Outlet />
+            </main>
+            <Footer />
+          </>
+        )}
+      </div>
+    </HelmetProvider>
   );
 }
 
