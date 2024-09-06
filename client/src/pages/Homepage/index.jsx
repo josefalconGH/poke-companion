@@ -1,11 +1,24 @@
 // Purpose: Homepage component to render the homepage
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function Homepage() {
   return (
     <main className="main-container">
+      <Helmet>
+        <title>Pokémon Companion</title>
+        <meta
+          name="description"
+          content="Welcome to Pokémon Companion! Stay updated on new features including Pokédex entries, data for types, evolution chains, moves, items, and more."
+        />
+        <meta
+          name="keywords"
+          content="Pokémon, Pokédex, Pokémon Data, Evolution Chains, Moves, Items, Coronation Tournament"
+        />
+        <link rel="canonical" href="https://poke-companion.com/" />
+      </Helmet>
       <header>
         <h1 className="header">
           Pokémon Companion - Updates &amp; Development

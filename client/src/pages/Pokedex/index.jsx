@@ -1,5 +1,6 @@
 // Purpose: Pokédex component to render the homepage
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import "./style.css";
 
 import {
@@ -86,6 +87,18 @@ export default function Pokedex() {
 
   return (
     <main className="main-container">
+      <Helmet>
+        <title>Pokémon Companion - Pokédex</title>
+        <meta
+          name="description"
+          content="Explore the Pokédex on Pokémon Companion! Discover information about all Pokémon species, including stats, types, abilities, and evolutions."
+        />
+        <meta
+          name="keywords"
+          content="Pokédex, Pokémon, Pokémon Stats, Evolution, Pokémon Types, Pokémon Abilities"
+        />
+        <link rel="canonical" href="https://poke-companion.com/pokedex" />
+      </Helmet>
       <header>
         <h1 className="header">Pokémon Companion - Pokédex</h1>
       </header>
