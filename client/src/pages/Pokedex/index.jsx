@@ -23,6 +23,7 @@ import {
   steelIcon,
   waterIcon,
 } from "../../assets/icons/types-round-svg";
+import Sort from "../../assets/icons/sort.svg";
 
 const pokemonTypes = [
   { name: "Bug", icon: bugIcon },
@@ -111,23 +112,20 @@ export default function Pokedex() {
           each Pokémon. With more than 1,000 Pokémon species, click on a
           Pokémon's name to get an in-depth look at its Pokédex data, including
           descriptions and sprites from various games, as well as the Pokémon's
-          abilities, evolution lines, moves, and more!
+          abilities, evolution lines, moves, and more{" "}
+          <span className="panel-pokedex-span">(Coming Soon)</span>!
         </p>
         <p className="padding-bottom">
           In addition,{" "}
           <span className="panel-pokedex-span">
-            you can navigate the Pokédex by{" "}
-            <a href="#type-filter" className="underline">
+            you can filter the Pokédex by{" "}
+            <a href="#type-filter" className="hover:underline">
               type
             </a>{" "}
-            or{" "}
-            <a href="" className="underline">
-              generation
-            </a>{" "}
-            the Pokémon was introduced in.
+            or sort the Pokémon by their ID, name, or base stats (Coming Soon).
           </span>{" "}
-          This allows you to filter the Pokédex to showcase Pokémon of the same
-          type or from the same generation.
+          This allows you to navigate the Pokédex in a way that best suited for
+          your needs.
         </p>
       </section>
       <section id="type-filter" className="panel-pokedex panel-filter">

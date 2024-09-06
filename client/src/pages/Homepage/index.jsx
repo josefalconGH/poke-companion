@@ -34,45 +34,46 @@ export default function Homepage() {
         </p>
         <p className="padding-bottom">
           Current planned features include:{" "}
-          <Link
-            to="/pokedex"
-            className="hover:underline"
-            aria-label="Pokédex entries"
-          >
-            Pokédex entries
-          </Link>
-          ,{" "}
           <a
             href="#"
-            className="hover:underline"
+            className="hover:underline panel-home-span"
             aria-label="Data for types, evolution chains, moves, items, locations"
           >
             Data
           </a>{" "}
-          for (types, evo chains, moves, items, locations),{" "}
-          <a
-            href="#"
-            className="hover:underline"
-            aria-label="Coronation Tournament"
+          for (
+          <Link
+            to="/pokedex"
+            className="hover:underline panel-home-span"
+            aria-label="Pokédex entries"
           >
-            Coronation Tournament
-          </a>
-          ,{" "}
+            Pokédex entries
+          </Link>{" "}
+          containing (ID, Sprites, Types, Base Stats), detailed Pokémon pages,
+          type charts, evolution chains),{" "}
           <a
             href="#"
-            className="hover:underline"
+            className="hover:underline panel-home-span"
             aria-label="Video Game information"
           >
             Video Game
           </a>{" "}
-          information and much more!
+          related information (locations, items, abilities, moves), a custom{" "}
+          <a
+            href="#"
+            className="hover:underline panel-home-span"
+            aria-label="Coronation Tournament"
+          >
+            World Coronation Series
+          </a>{" "}
+          battle simulator, and much more!
         </p>
         <p>
           Please check back for updates and feel free to reach out to the
           developer{" "}
           <a
             href="https://www.instagram.com/josefalconig/"
-            className="hover:underline"
+            className="hover:underline panel-home-span"
             aria-label="Developer's Instagram"
           >
             here
