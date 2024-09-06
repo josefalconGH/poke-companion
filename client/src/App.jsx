@@ -31,19 +31,27 @@ function App() {
     img.onload = callback;
   };
 
-  useEffect(() => {
-    const hasVisited = localStorage.getItem("hasVisited");
+  const hasBeenMoreThanFiveMinutes = (lastVisit) => {
+    const time = 5 * 60 * 1000;
+    const now = Date.now();
+    return now - lastVisit > time;
+  };
 
-    if (!hasVisited) {
-      // preload hero image for first-time visitors
+  useEffect(() => {
+    const lastVisit = localStorage.getItem("lastVisit");
+
+    if (!lastVisit || hasBeenMoreThanFiveMinutes(Number(lastVisit))) {
+      // if it's the user's first time or it's been more than 5 minutes, show the loading animation
       preloadImage(heroImage, () => {
         setIsContentReady(true);
       });
     } else {
-      // skip loading animation if they have visited before
+      // skip loading animation if the user visited within the last 5 minutes
       setIsLoading(false);
       setFadeIn(true);
     }
+    // update the last visit time to the current time
+    localStorage.setItem("lastVisit", Date.now().toString());
   }, []);
 
   useEffect(() => {
@@ -53,7 +61,6 @@ function App() {
         setTimeout(() => {
           setIsLoading(false);
           setFadeIn(true);
-          localStorage.setItem("hasVisited", "true"); // mark as visited
         }, 500);
       }, 2000);
     }
