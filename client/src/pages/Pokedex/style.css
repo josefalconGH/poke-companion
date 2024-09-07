@@ -4,6 +4,10 @@
   --panel-link-color: #0063cc;
 
   --table-border-color: #b9b9b9;
+
+  --yellow-border: #ffff8f;
+
+  --highlight-color: #faa25677;
 }
 
 /* HTML CSS */
@@ -239,6 +243,34 @@ html {
 .water {
   background: #539ddf;
   box-shadow: 0 0 10px #539ddf;
+}
+
+/* Search Bar CSS */
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 16px;
+  border: 2px solid var(--table-border-color);
+  outline: none;
+  border-radius: 6px;
+}
+
+.search-bar:focus {
+  border-color: var(--yellow-border); /* Change the border color when active */
+  box-shadow: 0 0 5px rgba(255, 221, 71, 0.5); /* Optional: Add a glow or shadow effect */
+}
+
+.highlight {
+  background-color: var(--highlight-color);
+}
+
+.no-results {
+  text-align: center;
+  font-style: italic;
+  font-weight: 600;
+  color: #888;
 }
 
 /* Pokedex Table Container CSS */
