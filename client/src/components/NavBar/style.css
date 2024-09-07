@@ -16,7 +16,7 @@
 
   --white-text: #f4f4f5;
   --grey-text: #9b9b9b;
-  --yellow-text: #ffff8f;
+  --link-text: #fa7970;
 }
 
 /* NavBar Dropdown CSS */
@@ -83,7 +83,7 @@
 
 .dropdown-item:hover {
   background-color: var(--bg-hover-color);
-  color: var(--yellow-text);
+  color: var(--link-text);
 }
 
 /* Dropdown Divider CSS */

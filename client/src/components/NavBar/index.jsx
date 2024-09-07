@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import pokedex from "../../assets/icons/pokedex.svg";
-import crown from "../../assets/icons/crown.svg";
 import game from "../../assets/icons/game.svg";
-import trainer from "../../assets/icons/trainer.svg";
+import star from "../../assets/icons/star.svg";
+import umbreon from "../../assets/icons/umbreon.svg";
 
 import DataDropdown from "../Dropdowns/DataDropdown";
 import GamesDropdown from "../Dropdowns/GamesDropdown";
@@ -88,7 +88,7 @@ export default function NavBar() {
               onClick={() => handleItemClick("world cs")}
             >
               <a className="navbar-menu-heading" title="World CS">
-                <img src={crown} alt="World CS" className="navbar-icon" />
+                <img src={star} alt="World CS" className="navbar-icon" />
                 <span className="navbar-text">World CS</span>
               </a>
               <div
@@ -106,7 +106,7 @@ export default function NavBar() {
               onClick={() => handleItemClick("login")}
             >
               <a className="navbar-menu-heading" title="Login">
-                <img src={trainer} alt="Login/Signup" className="navbar-icon" />
+                <img src={umbreon} alt="Login/Signup" className="navbar-icon" />
                 <span className="navbar-text">Login</span>
               </a>
               <div
