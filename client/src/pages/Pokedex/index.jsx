@@ -93,6 +93,21 @@ export default function Pokedex() {
     }
   };
 
+  const handleSearch = (event) => {
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    if (query === "") {
+      // reset the search query to show all Pokémon
+      setSortedPokemonData(pokemonData);
+    } else {
+      const filteredData = pokemonData.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(query)
+      );
+      setSortedPokemonData(filteredData);
+    }
+  };
+
   const sortData = (key) => {
     let order = "asc";
 
@@ -111,21 +126,6 @@ export default function Pokedex() {
 
     setSortedPokemonData(sortedData);
     setActiveSort({ column: key, order });
-  };
-
-  const handleSearch = (event) => {
-    const query = event.target.value.toLowerCase();
-    setSearchQuery(query);
-
-    if (query === "") {
-      // reset the search query to show all Pokémon
-      setSortedPokemonData(pokemonData);
-    } else {
-      const filteredData = pokemonData.filter((pokemon) =>
-        pokemon.name.toLowerCase().includes(query)
-      );
-      setSortedPokemonData(filteredData);
-    }
   };
 
   return (
@@ -172,7 +172,7 @@ export default function Pokedex() {
       </section>
       <section id="type-filter" className="panel-pokedex panel-filter">
         <div className="filter-header">
-          <p className="panel-pokedex-span">Filter by type:</p>
+          <p className="panel-pokedex-span">Filter by Type</p>
           <button
             onClick={() => sortByType("all")}
             className="reset-filter panel-pokedex-span"
