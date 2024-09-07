@@ -1,14 +1,14 @@
 // Purpose: Hero component to render the hero section
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook from react-router-dom
-import pokeCompanionSM from "../../assets/images/poke-companion-sm.png";
-import pokeCompanionSMEdge from "../../assets/images/poke-companion-sm-edge.png";
+import { useNavigate } from "react-router-dom";
+import pokeCompanion from "../../assets/images/poke-companion.png";
+import pokeCompanionTrim from "../../assets/images/poke-companion-trim.png";
 
 const Hero = () => {
-  const navigate = useNavigate(); // useNavigate hook
+  const navigate = useNavigate();
 
   const handleImageClick = () => {
-    navigate("/"); // navigate to the homepage
+    navigate("/");
   };
 
   return (
@@ -16,11 +16,11 @@ const Hero = () => {
       <div
         className="hero-background"
         style={{
-          backgroundImage: `url(${pokeCompanionSMEdge})`,
+          backgroundImage: `url(${pokeCompanionTrim})`,
         }}
       />
       <img
-        src={pokeCompanionSM}
+        src={pokeCompanion}
         alt="poke-companion-sm"
         className="hero-image"
         onClick={handleImageClick}

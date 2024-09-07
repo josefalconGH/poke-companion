@@ -13,7 +13,7 @@ import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import LoadingAnimation from "./components/Loading/LoadingAnimation";
-import heroImage from "./assets/images/poke-companion-sm.png";
+import heroImage from "./assets/images/poke-companion.png";
 
 import "../src/index.css";
 
