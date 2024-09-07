@@ -1,0 +1,66 @@
+/* HTML CSS */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main CSS */
+.main-container {
+  margin: 1.25rem auto 2rem;
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  background-color: #fff;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (min-width: 1260px) {
+  .main-container {
+    border-radius: 6px;
+    max-width: 1260px;
+  }
+}
+
+/* Header CSS */
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+/* Panel CSS */
+.panel-pokemon {
+  background-color: var(--bg-color-panel);
+  color: var(--text-panel);
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.panel-pokemon a {
+  color: var(--link-color-panel);
+  text-decoration: none;
+}
+
+.panel-pokemon p.padding-bottom {
+  padding-bottom: 0.5rem;
+}
+
+.panel-pokemon-span {
+  font-weight: 700;
+}
+
+.panel-pokemon-span a {
+  cursor: pointer;
+}
