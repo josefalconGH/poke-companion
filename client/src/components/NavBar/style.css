@@ -3,7 +3,7 @@
   position: absolute;
   top: 120%;
   left: 0;
-  background: var(--drop-bg-color);
+  background: var(--bg-color-drop);
   border: 2px solid var(--border-color);
   border-radius: 4px;
   padding: 0;
@@ -54,15 +54,15 @@
 
 .dropdown-item {
   font-weight: 600;
-  color: var(--white-text);
+  color: var(--text-white);
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.5s;
 }
 
 .dropdown-item:hover {
-  background-color: var(--bg-hover-color);
-  color: var(--link-text);
+  background-color: var(--bg-color-hover);
+  color: var(--text-link);
 }
 
 /* Dropdown Divider CSS */
@@ -71,7 +71,7 @@
   align-items: center;
   justify-content: center;
   padding: 0 16px;
-  color: var(--white-text);
+  color: var(--text-white);
   background: var(--drop-divider);
   font-size: 14px;
   font-weight: 600;

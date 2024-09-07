@@ -28,8 +28,8 @@
 
 /* Panel CSS */
 .panel-home {
-  background-color: var(--panel-bg-color);
-  color: var(--panel-text-color);
+  background-color: var(--bg-color-panel);
+  color: var(--text-panel);
   display: block;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -40,7 +40,7 @@
 }
 
 .panel-home a {
-  color: var(--panel-link-color);
+  color: var(--link-color-panel);
   text-decoration: none;
 }
 

@@ -8,31 +8,28 @@
 
   --bg-gradient-start: #212429;
   --bg-gradient-end: #07090c;
-
   --bg-gradient-active-start: #24242420;
   --bg-gradient-active-end: #050608;
 
-  --drop-bg-color: #07090c;
+  --bg-color-drop: #07090c;
+  --bg-color-panel: #dadada;
+  --bg-color-hover: #3640503f;
+
   --drop-divider: #7a7a7a;
 
-  --navbar-link-color: #f4f4f5;
-
-  --white-text: #f4f4f5;
-  --grey-text: #9b9b9b;
-  --link-text: #fa7970;
-
-  --panel-bg-color: #dadada;
-  --panel-text-color: #333;
-  --panel-link-color: #fa7970;
-
-  --table-border-color: #b9b9b9;
-
-  --search-border: #fa7970;
-
-  --highlight-color: #fa797077;
-
   --border-color: #7a7a7a;
-  --bg-hover-color: #3640503f;
+  --border-color-table: #b9b9b9;
+  --border-color-search: #fa7970;
+
+  --link-color-navbar: #f4f4f5;
+  --link-color-pokemon: #cea5fb;
+  --link-color-panel: #fa7970;
+
+  --text-white: #f4f4f5;
+  --text-link: #fa7970;
+  --text-panel: #333;
+
+  --color-highlight: #fa797077;
 }
 
 /* Hero CSS */
@@ -147,7 +144,7 @@
 
 .navbar-menu-heading {
   font-weight: 600;
-  color: var(--navbar-link-color);
+  color: var(--link-color-navbar);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,7 +177,7 @@
     var(--bg-gradient-start),
     var(--bg-gradient-end)
   );
-  color: var(--white-text);
+  color: var(--text-white);
   padding: 8px;
 }
 
@@ -194,14 +191,14 @@
 .footer-item {
   text-decoration-line: underline;
   text-decoration-skip-ink: none;
-  color: var(--white-text);
+  color: var(--text-white);
   font-weight: 700;
   display: inline-block;
   margin-bottom: 4px;
 }
 
 .footer-item:hover {
-  color: var(--link-text);
+  color: var(--text-link);
 }
 
 .footer-font {
