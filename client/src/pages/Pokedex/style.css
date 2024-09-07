@@ -445,12 +445,7 @@ td {
 }
 
 .active-sort {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.1
-  ); /* Highlight the active sorting column */
+  background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
@@ -459,5 +454,5 @@ td {
 }
 
 .sortwrap.cell-header:hover {
-  background-color: rgba(0, 0, 0, 0.2); /* Optional hover effect */
+  background-color: rgba(0, 0, 0, 0.2);
 }
