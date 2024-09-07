@@ -71,8 +71,10 @@ export default function Pokedex() {
         return response.json();
       })
       .then((data) => {
-        setPokemonData(data);
-        setSortedPokemonData(data);
+        // sort the fetched data by ID in ascending order
+        const sortedById = data.sort((a, b) => a.id - b.id);
+        setPokemonData(sortedById);
+        setSortedPokemonData(sortedById);
       })
       .catch((error) => console.error("Error fetching Pokémon data:", error));
   }, []);
