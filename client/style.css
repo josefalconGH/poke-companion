@@ -2,9 +2,9 @@
   /* Neutral Grey */
   --neutral-grey: #bebebe;
   /* Light Pattern Overlay */
-  --light-overlay: rgba(10, 20, 40, 0.4);
+  --light-overlay: rgba(2, 10, 30, 0.4);
   /* Dark Pattern Overlay */
-  --dark-overlay: rgba(0, 0, 0, 0.2);
+  --dark-overlay: rgba(77, 77, 77, 0.4);
 }
 
 html,
