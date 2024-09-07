@@ -57,6 +57,7 @@ const TypeIcon = React.memo(({ name, icon, onClick, className }) => (
 export default function Pokedex() {
   const [pokemonData, setPokemonData] = useState([]);
   const [sortedPokemonData, setSortedPokemonData] = useState(pokemonData);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     // fetch the full list of Pokémon when the component mounts
@@ -75,9 +76,9 @@ export default function Pokedex() {
   }, []);
 
   const handleSortByType = (type) => {
+    // filter the Pokémon data based on the selected type
     console.log(`Sorting by type: ${type}`);
     if (type === "all") {
-      // reset to all Pokémon if 'all' is selected
       setSortedPokemonData(pokemonData);
     } else {
       const filteredData = pokemonData.filter((pokemon) =>
@@ -92,6 +93,7 @@ export default function Pokedex() {
     setSearchQuery(query);
 
     if (query === "") {
+      // reset the search query to show all Pokémon
       setSortedPokemonData(pokemonData);
     } else {
       const filteredData = pokemonData.filter((pokemon) =>
@@ -164,6 +166,15 @@ export default function Pokedex() {
           ))}
         </div>
       </section>
+      <section className="panel-pokedex panel-search">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearch}
+          placeholder="Search Pokémon by name..."
+          className="search-bar"
+        />
+      </section>
       <section className="pokedex-table-container">
         <table className="pokedex-table sticky-header block-wide">
           <thead className="table-header">
@@ -210,53 +221,69 @@ export default function Pokedex() {
             </tr>
           </thead>
           <tbody>
-            {sortedPokemonData.map((pokemon) => (
-              <tr key={pokemon.id}>
-                <td className="cell-num cell-start">
-                  #{String(pokemon.id).padStart(4, "0")}
+            {sortedPokemonData.length > 0 ? (
+              sortedPokemonData.map((pokemon) => (
+                <tr
+                  key={pokemon.id}
+                  className={
+                    searchQuery &&
+                    pokemon.name.toLowerCase().includes(searchQuery)
+                      ? "highlight"
+                      : ""
+                  }
+                >
+                  <td className="cell-num cell-start">
+                    #{String(pokemon.id).padStart(4, "0")}
+                  </td>
+                  <td className="cell-sprite">
+                    <img
+                      loading="lazy"
+                      src={pokemon.sprite}
+                      alt={`${pokemon.name} official sprite`}
+                      className="pokemon-sprite pokemon-sprite-fixed"
+                    />
+                  </td>
+                  <td className="pokemon-td-name">
+                    <a className="pokemon-name">
+                      {pokemon.name.charAt(0).toUpperCase() +
+                        pokemon.name.slice(1)}
+                    </a>
+                  </td>
+                  <td>
+                    <a className="type-icon">
+                      {pokemon.type.map((type) => {
+                        const typeData = pokemonTypes.find(
+                          (typeObj) =>
+                            typeObj.name.toLowerCase() === type.toLowerCase()
+                        );
+                        return (
+                          <TypeIcon
+                            key={type}
+                            name={type}
+                            icon={typeData.icon}
+                            onClick={() => handleSortByType(type.toLowerCase())}
+                            className="small-icon"
+                          />
+                        );
+                      })}
+                    </a>
+                  </td>
+                  <td className="stat-num">{pokemon.hp}</td>
+                  <td className="stat-num">{pokemon.attack}</td>
+                  <td className="stat-num">{pokemon.defense}</td>
+                  <td className="stat-num">{pokemon.special_attack}</td>
+                  <td className="stat-num">{pokemon.special_defense}</td>
+                  <td className="stat-num">{pokemon.speed}</td>
+                  <td className="stat-num stat-total">{pokemon.total}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="11" className="no-results">
+                  No Pokémon found
                 </td>
-                <td className="cell-sprite">
-                  <img
-                    loading="lazy"
-                    src={pokemon.sprite}
-                    alt={`${pokemon.name} official sprite`}
-                    className="pokemon-sprite pokemon-sprite-fixed"
-                  />
-                </td>
-                <td className="pokemon-td-name">
-                  <a className="pokemon-name">
-                    {pokemon.name.charAt(0).toUpperCase() +
-                      pokemon.name.slice(1)}
-                  </a>
-                </td>
-                <td>
-                  <a className="type-icon">
-                    {pokemon.type.map((type) => {
-                      const typeData = pokemonTypes.find(
-                        (typeObj) =>
-                          typeObj.name.toLowerCase() === type.toLowerCase()
-                      );
-                      return (
-                        <TypeIcon
-                          key={type}
-                          name={type}
-                          icon={typeData.icon}
-                          onClick={() => handleSortByType(type.toLowerCase())}
-                          className="small-icon"
-                        />
-                      );
-                    })}
-                  </a>
-                </td>
-                <td className="stat-num">{pokemon.hp}</td>
-                <td className="stat-num">{pokemon.attack}</td>
-                <td className="stat-num">{pokemon.defense}</td>
-                <td className="stat-num">{pokemon.special_attack}</td>
-                <td className="stat-num">{pokemon.special_defense}</td>
-                <td className="stat-num">{pokemon.speed}</td>
-                <td className="stat-num stat-total">{pokemon.total}</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </section>
