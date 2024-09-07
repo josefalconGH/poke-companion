@@ -1,6 +1,7 @@
 // Purpose: Pokédex component to render the homepage
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 import {
@@ -343,11 +344,14 @@ export default function Pokedex() {
                       className="pokemon-sprite pokemon-sprite-fixed"
                     />
                   </td>
-                  <td className="pokemon-td-name">
-                    <a className="pokemon-name">
+                  <td className="pokemon-td-name pokemon-link">
+                    <Link
+                      to={`/pokedex/pokemon/${pokemon.name.toLowerCase()}`}
+                      className="pokemon-name"
+                    >
                       {pokemon.name.charAt(0).toUpperCase() +
                         pokemon.name.slice(1)}
-                    </a>
+                    </Link>
                   </td>
                   <td>
                     <a className="type-icon">
