@@ -94,7 +94,12 @@ export default function Pokedex() {
   };
 
   const sortData = (key) => {
-    let order = activeSort.order === "asc" ? "desc" : "asc";
+    let order = "asc";
+
+    if (activeSort.column === key) {
+      order = activeSort.order === "asc" ? "desc" : "asc";
+    }
+
     const sortedData = [...sortedPokemonData].sort((a, b) => {
       if (key === "name") {
         return order === "asc"
@@ -103,6 +108,7 @@ export default function Pokedex() {
       }
       return order === "asc" ? a[key] - b[key] : b[key] - a[key];
     });
+
     setSortedPokemonData(sortedData);
     setActiveSort({ column: key, order });
   };
@@ -158,10 +164,10 @@ export default function Pokedex() {
             <a href="#type-filter" className="hover:underline">
               type
             </a>{" "}
-            or sort the Pokémon by their ID, name, or base stats (Coming Soon).
+            or sort the Pokémon by their ID, name, or base stats.
           </span>{" "}
-          This allows you to navigate the Pokédex in a way that best suited for
-          your needs.
+          This allows you to navigate the Pokédex in a way that is best suited
+          for your needs.
         </p>
       </section>
       <section id="type-filter" className="panel-pokedex panel-filter">
