@@ -24,6 +24,7 @@ import {
   waterIcon,
 } from "../../assets/icons/types-round-svg";
 import Sort from "../../assets/icons/sort.svg";
+import Close from "../../assets/icons/close-x.svg";
 
 const pokemonTypes = [
   { name: "Bug", icon: bugIcon },
@@ -86,6 +87,20 @@ export default function Pokedex() {
     }
   };
 
+  const handleSearch = (event) => {
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    if (query === "") {
+      setSortedPokemonData(pokemonData);
+    } else {
+      const filteredData = pokemonData.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(query)
+      );
+      setSortedPokemonData(filteredData);
+    }
+  };
+
   return (
     <main className="main-container">
       <Helmet>
@@ -135,7 +150,7 @@ export default function Pokedex() {
             onClick={() => handleSortByType("all")}
             className="reset-filter panel-pokedex-span"
           >
-            Remove Filter
+            <img src={Close} alt="Remove Filter" className="close-icon" />
           </button>
         </div>
         <div className="wrapper">
