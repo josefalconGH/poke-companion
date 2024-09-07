@@ -60,6 +60,7 @@ export default function Pokedex() {
   const [pokemonData, setPokemonData] = useState([]);
   const [sortedPokemonData, setSortedPokemonData] = useState(pokemonData);
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeSort, setActiveSort] = useState({ column: "id", order: "asc" });
 
   useEffect(() => {
     // fetch the full list of Pokémon when the component mounts
@@ -79,7 +80,7 @@ export default function Pokedex() {
       .catch((error) => console.error("Error fetching Pokémon data:", error));
   }, []);
 
-  const handleSortByType = (type) => {
+  const sortByType = (type) => {
     // filter the Pokémon data based on the selected type
     console.log(`Sorting by type: ${type}`);
     if (type === "all") {
@@ -90,6 +91,20 @@ export default function Pokedex() {
       );
       setSortedPokemonData(filteredData);
     }
+  };
+
+  const sortData = (key) => {
+    let order = activeSort.order === "asc" ? "desc" : "asc";
+    const sortedData = [...sortedPokemonData].sort((a, b) => {
+      if (key === "name") {
+        return order === "asc"
+          ? a[key].localeCompare(b[key])
+          : b[key].localeCompare(a[key]);
+      }
+      return order === "asc" ? a[key] - b[key] : b[key] - a[key];
+    });
+    setSortedPokemonData(sortedData);
+    setActiveSort({ column: key, order });
   };
 
   const handleSearch = (event) => {
@@ -153,7 +168,7 @@ export default function Pokedex() {
         <div className="filter-header">
           <p className="panel-pokedex-span">Filter by type:</p>
           <button
-            onClick={() => handleSortByType("all")}
+            onClick={() => sortByType("all")}
             className="reset-filter panel-pokedex-span"
           >
             <img src={Clear} alt="Remove Filter" className="close-icon" />
@@ -165,7 +180,7 @@ export default function Pokedex() {
               key={name}
               name={name}
               icon={icon}
-              onClick={() => handleSortByType(name.toLowerCase())}
+              onClick={() => sortByType(name.toLowerCase())}
             />
           ))}
         </div>
@@ -196,43 +211,106 @@ export default function Pokedex() {
           <thead className="table-header">
             <tr>
               <th>
-                <div className="sortwrap cell-header">ID</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "id" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("id")}
+                >
+                  ID
+                </div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Sprite</div>
+                <div className="cell-header">Sprite</div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Name</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "name" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("name")}
+                >
+                  Name
+                </div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Type</div>
+                <div className="cell-header">Type</div>
               </th>
               <th colSpan="7">
-                <div className="sortwrap cell-header">Base Stats</div>
+                <div className="cell-header">Base Stats</div>
               </th>
             </tr>
             <tr>
               <th colSpan="4"></th>
               <th>
-                <div className="sortwrap cell-header">HP</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "hp" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("hp")}
+                >
+                  HP
+                </div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Attack</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "attack" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("attack")}
+                >
+                  Attack
+                </div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Defense</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "defense" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("defense")}
+                >
+                  Defense
+                </div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Sp. Atk</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "special_attack" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("special_attack")}
+                >
+                  Sp. Atk
+                </div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Sp. Def</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "special_defense" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("special_defense")}
+                >
+                  Sp. Def
+                </div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Speed</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "speed" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("speed")}
+                >
+                  Speed
+                </div>
               </th>
               <th>
-                <div className="sortwrap cell-header">Total</div>
+                <div
+                  className={`sortwrap cell-header ${
+                    activeSort.column === "total" ? "active-sort" : ""
+                  }`}
+                  onClick={() => sortData("total")}
+                >
+                  Total
+                </div>
               </th>
             </tr>
           </thead>

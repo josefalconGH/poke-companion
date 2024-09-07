@@ -257,14 +257,14 @@ html {
   box-shadow: 0 0 10px #539ddf;
 }
 
-.dropdown-icon {
+/* .dropdown-icon {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .dropdown-icon.collapsed {
   transform: rotate(-90deg);
-}
+} */
 
 /* Search Bar CSS */
 .search-bar-container {
@@ -442,4 +442,22 @@ td {
 .stat-total {
   font-weight: 600;
   color: var(--panel-text-color);
+}
+
+.active-sort {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ); /* Highlight the active sorting column */
+  cursor: pointer;
+}
+
+.sortwrap.cell-header {
+  cursor: pointer;
+}
+
+.sortwrap.cell-header:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* Optional hover effect */
 }
