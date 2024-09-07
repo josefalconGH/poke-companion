@@ -1,10 +1,4 @@
-:root {
-  /* Neutral Grey */
-  --bg-color: #bebebe;
-  /* Text Color */
-  --text-color: #1d1e2e;
-}
-
+/* Body CSS */
 body {
   background-color: var(--bg-color); /* Apply default background color */
   margin: 0;

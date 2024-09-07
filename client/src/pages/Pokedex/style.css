@@ -1,15 +1,3 @@
-:root {
-  --panel-bg-color: #dadada;
-  --panel-text-color: #333;
-  --panel-link-color: #fa7970;
-
-  --table-border-color: #b9b9b9;
-
-  --search-border: #fa7970;
-
-  --highlight-color: #fa797077;
-}
-
 /* HTML CSS */
 html {
   scroll-behavior: smooth;
