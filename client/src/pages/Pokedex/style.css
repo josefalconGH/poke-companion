@@ -90,6 +90,18 @@ html {
   transition: all 0.5s ease;
 }
 
+.panel-filter .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 1260px;
+  margin: 10px auto;
+  margin-bottom: 0;
+  transition: all 0.5s ease;
+}
+
 /* @media (min-width: 620px) {
   .panel-filter {
     flex: 0 0 120px;
@@ -245,6 +257,15 @@ html {
   box-shadow: 0 0 10px #539ddf;
 }
 
+.dropdown-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.collapsed {
+  transform: rotate(-90deg);
+}
+
 /* Search Bar CSS */
 .search-bar-container {
   position: relative;
@@ -254,9 +275,9 @@ html {
 
 .search-bar {
   width: 100%;
-  padding: 10px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+  padding: 8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   font-size: 16px;
   border: 2px solid var(--table-border-color);
   outline: none;
@@ -264,8 +285,8 @@ html {
 }
 
 .search-bar:focus {
-  border-color: var(--search-border); /* Change the border color when active */
-  box-shadow: 0 0 5px rgba(255, 71, 111, 0.5); /* Optional: Add a glow or shadow effect */
+  border-color: var(--search-border);
+  box-shadow: 0 0 5px rgba(255, 71, 111, 0.5);
 }
 
 .clear-icon {

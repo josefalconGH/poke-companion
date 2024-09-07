@@ -26,6 +26,7 @@ import {
 
 import Clear from "../../assets/icons/clear-filter.svg";
 import Close from "../../assets/icons/close.svg";
+import Dropdown from "../../assets/icons/dropdown.svg";
 
 const pokemonTypes = [
   { name: "Bug", icon: bugIcon },
