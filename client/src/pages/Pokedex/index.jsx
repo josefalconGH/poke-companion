@@ -23,8 +23,9 @@ import {
   steelIcon,
   waterIcon,
 } from "../../assets/icons/types-round-svg";
-import Sort from "../../assets/icons/sort.svg";
-import Close from "../../assets/icons/close-x.svg";
+
+import Clear from "../../assets/icons/clear-filter.svg";
+import Close from "../../assets/icons/close.svg";
 
 const pokemonTypes = [
   { name: "Bug", icon: bugIcon },
@@ -152,7 +153,7 @@ export default function Pokedex() {
             onClick={() => handleSortByType("all")}
             className="reset-filter panel-pokedex-span"
           >
-            <img src={Close} alt="Remove Filter" className="close-icon" />
+            <img src={Clear} alt="Remove Filter" className="close-icon" />
           </button>
         </div>
         <div className="wrapper">
@@ -167,13 +168,25 @@ export default function Pokedex() {
         </div>
       </section>
       <section className="panel-pokedex panel-search">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearch}
-          placeholder="Search Pokémon by name..."
-          className="search-bar"
-        />
+        <div className="search-bar-container">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearch}
+            placeholder="Search Pokémon by name..."
+            className="search-bar"
+          />
+          {searchQuery && (
+            <img
+              src={Close}
+              alt="Clear search"
+              className="clear-icon"
+              onClick={() =>
+                setSearchQuery("") || setSortedPokemonData(pokemonData)
+              }
+            />
+          )}
+        </div>
       </section>
       <section className="pokedex-table-container">
         <table className="pokedex-table sticky-header block-wide">

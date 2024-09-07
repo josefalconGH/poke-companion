@@ -1,13 +1,13 @@
 :root {
-  --panel-bg-color: #ededed;
+  --panel-bg-color: #dadada;
   --panel-text-color: #333;
-  --panel-link-color: #0063cc;
+  --panel-link-color: #fa7970;
 
   --table-border-color: #b9b9b9;
 
-  --yellow-border: #ffff8f;
+  --search-border: #fa7970;
 
-  --highlight-color: #faa25677;
+  --highlight-color: #fa797077;
 }
 
 /* HTML CSS */
@@ -246,6 +246,12 @@ html {
 }
 
 /* Search Bar CSS */
+.search-bar-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
 .search-bar {
   width: 100%;
   padding: 10px;
@@ -258,8 +264,23 @@ html {
 }
 
 .search-bar:focus {
-  border-color: var(--yellow-border); /* Change the border color when active */
-  box-shadow: 0 0 5px rgba(255, 221, 71, 0.5); /* Optional: Add a glow or shadow effect */
+  border-color: var(--search-border); /* Change the border color when active */
+  box-shadow: 0 0 5px rgba(255, 71, 111, 0.5); /* Optional: Add a glow or shadow effect */
+}
+
+.clear-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+.clear-icon:hover {
+  opacity: 1;
 }
 
 .highlight {
