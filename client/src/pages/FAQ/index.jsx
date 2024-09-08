@@ -46,6 +46,8 @@ export default function FAQ() {
               <a
                 href="https://josefalcongh.github.io/dex-pedia/"
                 className="hover:underline panel-home-span"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Developer's Instagram"
               >
                 here!
