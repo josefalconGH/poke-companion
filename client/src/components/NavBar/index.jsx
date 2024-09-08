@@ -53,7 +53,11 @@ export default function NavBar() {
               onClick={() => handleItemClick("data")}
             >
               <div className="navbar-menu-heading" title="Data">
-                <img src={pokedex} alt="Data" className="navbar-icon" />
+                <img
+                  src={pokedex}
+                  alt="Pokédex Icon Data"
+                  className="navbar-icon"
+                />
                 <span className="navbar-text">Data</span>
               </div>
               <div
@@ -73,7 +77,11 @@ export default function NavBar() {
               onClick={() => handleItemClick("games")}
             >
               <div className="navbar-menu-heading" title="Games">
-                <img src={game} alt="Games" className="navbar-icon" />
+                <img
+                  src={game}
+                  alt="Controller Icon Games"
+                  className="navbar-icon"
+                />
                 <span className="navbar-text">Games</span>
               </div>
               <div
@@ -93,7 +101,11 @@ export default function NavBar() {
               onClick={() => handleItemClick("world cs")}
             >
               <div className="navbar-menu-heading" title="World CS">
-                <img src={star} alt="World CS" className="navbar-icon" />
+                <img
+                  src={star}
+                  alt="Star Icon World Championship Series"
+                  className="navbar-icon"
+                />
                 <span className="navbar-text">World CS</span>
               </div>
               <div
@@ -104,6 +116,7 @@ export default function NavBar() {
                 <WorldCSDropdown isVisible={activeItem === "world cs"} />
               </div>
             </li>
+
             {/* Login Menu Item */}
             <li
               className={`navbar-item ${
@@ -112,7 +125,11 @@ export default function NavBar() {
               onClick={() => handleItemClick("login")}
             >
               <div className="navbar-menu-heading" title="Login">
-                <img src={umbreon} alt="Login/Signup" className="navbar-icon" />
+                <img
+                  src={umbreon}
+                  alt="Umbreon Icon Login/Signup"
+                  className="navbar-icon"
+                />
                 <span className="navbar-text">Login</span>
               </div>
               <div
