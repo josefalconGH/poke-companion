@@ -47,14 +47,15 @@ export default function NavBar() {
       <div className="navbar-container">
         {!searchActive && (
           <ul className="navbar-menu">
+            {/* Data Menu Item */}
             <li
               className={`navbar-item ${activeItem === "data" ? "active" : ""}`}
               onClick={() => handleItemClick("data")}
             >
-              <a className="navbar-menu-heading" title="Data">
+              <div className="navbar-menu-heading" title="Data">
                 <img src={pokedex} alt="Data" className="navbar-icon" />
                 <span className="navbar-text">Data</span>
-              </a>
+              </div>
               <div
                 className={`navbar-sub-menu ${
                   activeItem === "data" ? "visible" : ""
@@ -63,16 +64,18 @@ export default function NavBar() {
                 <DataDropdown isVisible={activeItem === "data"} />
               </div>
             </li>
+
+            {/* Games Menu Item */}
             <li
               className={`navbar-item ${
                 activeItem === "games" ? "active" : ""
               }`}
               onClick={() => handleItemClick("games")}
             >
-              <a className="navbar-menu-heading" title="Games">
+              <div className="navbar-menu-heading" title="Games">
                 <img src={game} alt="Games" className="navbar-icon" />
                 <span className="navbar-text">Games</span>
-              </a>
+              </div>
               <div
                 className={`navbar-sub-menu navbar-sub-menu-games ${
                   activeItem === "games" ? "visible" : ""
@@ -81,16 +84,18 @@ export default function NavBar() {
                 <GamesDropdown isVisible={activeItem === "games"} />
               </div>
             </li>
+
+            {/* World CS Menu Item */}
             <li
               className={`navbar-item ${
                 activeItem === "world cs" ? "active" : ""
               }`}
               onClick={() => handleItemClick("world cs")}
             >
-              <a className="navbar-menu-heading" title="World CS">
+              <div className="navbar-menu-heading" title="World CS">
                 <img src={star} alt="World CS" className="navbar-icon" />
                 <span className="navbar-text">World CS</span>
-              </a>
+              </div>
               <div
                 className={`navbar-sub-menu navbar-sub-menu-world-cs ${
                   activeItem === "world cs" ? "visible" : ""
@@ -99,16 +104,17 @@ export default function NavBar() {
                 <WorldCSDropdown isVisible={activeItem === "world cs"} />
               </div>
             </li>
+            {/* Login Menu Item */}
             <li
               className={`navbar-item ${
                 activeItem === "login" ? "active" : ""
               }`}
               onClick={() => handleItemClick("login")}
             >
-              <a className="navbar-menu-heading" title="Login">
+              <div className="navbar-menu-heading" title="Login">
                 <img src={umbreon} alt="Login/Signup" className="navbar-icon" />
                 <span className="navbar-text">Login</span>
-              </a>
+              </div>
               <div
                 className={`navbar-sub-menu navbar-sub-menu-login ${
                   activeItem === "login" ? "visible" : ""
