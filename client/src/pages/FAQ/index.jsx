@@ -1,4 +1,4 @@
-// Purpose: Pokémon component to render the homepage
+// Purpose: FAQ component to render the homepage
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import "./style.css";
