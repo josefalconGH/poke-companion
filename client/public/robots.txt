@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /signup
+
+# Disallow any directories or pages that shouldn't be indexed
+Disallow: /server/
+Disallow: /api/
+
+Sitemap: https://poke-companion.com/sitemap.xml
