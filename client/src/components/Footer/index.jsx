@@ -1,26 +1,30 @@
 // Purpose: Footer component to render the footer
+import React from "react";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <a
-          href="#"
+        <Link
+          to="/faq"
           className="footer-item"
           aria-label="Frequently Asked Questions"
         >
           Frequently Asked Questions
-        </a>
+        </Link>
         <p
           className="footer-font"
           aria-label="All content and design copyright"
         >
-          All content & design &copy; PokéCompanion 2024.
+          All Content/Design &copy; PokéCompanion 2024
         </p>
         <p
           className="footer-font"
           aria-label="Pokemon images and names copyright"
         >
-          Pokémon images & names &copy; 1995-2024 Game Freak.
+          Pokémon Information &copy; 1995-2024 Game Freak
         </p>
       </div>
     </footer>
