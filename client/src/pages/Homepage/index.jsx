@@ -76,9 +76,8 @@ export default function Homepage() {
             className="hover:underline panel-home-span"
             aria-label="Developer's Instagram"
           >
-            here
+            here.
           </a>
-          .
         </p>
       </section>
     </main>
