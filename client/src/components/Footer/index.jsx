@@ -18,7 +18,7 @@ export default function Footer() {
           className="footer-font"
           aria-label="All content and design copyright"
         >
-          All Content/Design &copy; PokéCompanion 2024
+          Content/Design &copy; PokéCompanion 2024
         </p>
         <p
           className="footer-font"
