@@ -65,7 +65,21 @@ const startApolloServer = async () => {
     }
   });
 
-  // serve client/build as static files
+  // serve client/public as static files
+  app.use(express.static(path.join(__dirname, "../client/public")));
+
+  // serve sitemap.xml
+  app.get("/sitemap.xml", (req, res) => {
+    res.set("Content-Type", "application/xml");
+    res.sendFile(path.join(__dirname, "../client/public", "sitemap.xml"));
+  });
+
+  // serve robots.txt
+  app.get("/robots.txt", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/public", "robots.txt"));
+  });
+
+  // serve production build of app
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../client/dist")));
 
