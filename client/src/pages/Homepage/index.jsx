@@ -8,17 +8,64 @@ export default function Homepage() {
   return (
     <main className="main-container">
       <Helmet>
-        <title>Pokémon Companion</title>
+        <title>Poké Companion - Your Ultimate Pokémon Companion</title>
         <meta
           name="description"
           content="Welcome to Pokémon Companion! Stay updated on new features including Pokédex entries, data for types, evolution chains, moves, items, and more."
         />
         <meta
           name="keywords"
-          content="Pokémon, Pokédex, Pokémon Data, Evolution Chains, Moves, Items, Coronation Tournament"
+          content="PokéCompanion, Poké Companion, Pokémon, Pokédex, Pokémon Data, Evolution Chains, Moves, Items, Coronation Tournament"
         />
         <link rel="canonical" href="https://poke-companion.com/" />
+
+        {/* Open Graph meta tags for social sharing */}
+        <meta
+          property="og:title"
+          content="Poké Companion - The Ultimate Pokémon Companion"
+        />
+        <meta
+          property="og:description"
+          content="Explore detailed Pokémon stats, moves, abilities, and more with Poké Companion. Become the best Pokémon trainer with all the information at your fingertips!"
+        />
+        <meta property="og:url" content="https://poke-companion.com/" />
+        <meta
+          property="og:image"
+          content="https://poke-companion.com/images/og-image.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Poké Companion" />
+
+        {/* Twitter Card meta tags for social sharing */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Poké Companion - Your Ultimate Pokémon Companion"
+        />
+        <meta
+          name="twitter:description"
+          content="Track Pokémon stats, moves, abilities, evolutions, and more with Poké Companion, the ultimate guide for Pokémon trainers."
+        />
+        <meta
+          name="twitter:image"
+          content="https://poke-companion.com/images/twitter-image.png"
+        />
+        <meta name="twitter:site" content="@PokeCompanion" />
+
+        {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://poke-companion.com",
+            "name": "Poké Companion",
+            "description": "Poké Companion is a comprehensive platform for Pokémon trainers, offering detailed Pokémon stats, moves, abilities, and evolutions."
+          }
+          `}
+        </script>
       </Helmet>
+
       <header>
         <h1 className="header">
           Pokémon Companion - Updates &amp; Development
