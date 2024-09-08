@@ -19,7 +19,7 @@ export default function FAQ() {
         <link rel="canonical" href="https://poke-companion.com/faq" />
       </Helmet>
       <header>
-        <h1 className="header">Frequently Asked Questions</h1>
+        <h1 className="header">Pokémon Companion - FAQ</h1>
       </header>
 
       <section className="faq-container">
