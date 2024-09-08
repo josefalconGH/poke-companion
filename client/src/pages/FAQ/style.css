@@ -34,18 +34,54 @@ html {
   overflow-wrap: break-word;
 }
 
+/* FAQ Container CSS */
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.faq-header {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 /* Panel CSS */
 .panel-faq {
   background-color: var(--bg-color-panel);
   color: var(--text-panel);
   display: block;
-  margin-top: 1rem;
+  margin-top: 0.25rem;
   margin-bottom: 1rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   padding: 1rem;
   border-radius: 6px;
   overflow: hidden;
+}
+
+.panel-faq-question {
+  font-weight: 700;
+  font-size: 1.08rem;
+}
+
+.panel-faq-answer {
+  background-color: var(--bg-color-answer);
+  color: var(--text-panel);
+  display: block;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.panel-faq-answer-span {
+  font-weight: 600;
 }
 
 .panel-faq a {
@@ -57,10 +93,18 @@ html {
   padding-bottom: 0.5rem;
 }
 
+.panel-faq p.padding-top {
+  padding-top: 0.5rem;
+}
+
 .panel-faq-span {
   font-weight: 700;
 }
 
 .panel-faq-span a {
   cursor: pointer;
+}
+
+.tabbing {
+  padding-left: 1rem;
 }
