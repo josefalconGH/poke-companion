@@ -1,6 +1,7 @@
 // Purpose: Pokémon component to render the homepage
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useParams } from "react-router-dom";
 import "./style.css";
 
 import {
@@ -52,20 +53,51 @@ const TypeIcon = React.memo(({ name, icon, onClick, className }) => (
   </div>
 ));
 
-export default function Pokedex() {
+export default function PokemonDetail() {
+  const { name } = useParams();
+
+  const [pokemonData, setPokemonData] = useState(null);
+
+  useEffect(() => {
+    // fetch the Pokémon's details based on the name in the URL
+    fetch(`/api/pokedex/pokemon/${name.toLowerCase()}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch Pokémon data");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setPokemonData(data);
+      })
+      .catch((error) => console.error("Error fetching Pokémon data:", error));
+  }, [name]);
+
   return (
     <main className="main-container">
       <Helmet>
-        <title>Pokémon - </title>
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
+        <title>{`Pokémon Companion - ${
+          name.charAt(0).toUpperCase() + name.slice(1)
+        }`}</title>
+        <meta
+          name="description"
+          content={`Discover details about ${
+            name.charAt(0).toUpperCase() + name.slice(1)
+          } on Pokémon Companion!`}
+        />
+        <meta
+          name="keywords"
+          content={`Pokémon, ${name}, Pokémon Stats, Evolution, Pokémon Types, Pokémon Abilities`}
+        />
         <link
           rel="canonical"
-          href="https://poke-companion.com/pokedex/pokemon/:name"
+          href={`https://poke-companion.com/pokedex/pokemon/${name}`}
         />
       </Helmet>
       <header>
-        <h1 className="header">Pokémon - Pokédex</h1>
+        <h1 className="header">{`Pokémon Companion - ${
+          name.charAt(0).toUpperCase() + name.slice(1)
+        }`}</h1>
       </header>
       <section className="panel-pokemon"></section>
     </main>
