@@ -169,7 +169,7 @@ export default function Homepage() {
             href="https://www.instagram.com/josefalconig/"
             target="_blank"
             aria-label="Instagram"
-            className="social-panel instagram-panel"
+            className="social-panel social-link instagram-panel"
           >
             <img src={Instagram} alt="Instagram Logo" className="social-icon" />
             <span className="social-text">Follow Developer's Instagram</span>
@@ -178,7 +178,7 @@ export default function Homepage() {
             href="https://github.com/josefalconGH"
             target="_blank"
             aria-label="GitHub"
-            className="social-panel github-panel"
+            className="social-panel social-link github-panel"
           >
             <img src={GitHub} alt="GitHub Logo" className="social-icon" />
             <span className="social-text">PokéCompanion's Repository</span>
