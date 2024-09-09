@@ -2,6 +2,9 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Instagram from "../../assets/icons/socials/instagram.svg";
+import GitHub from "../../assets/icons/socials/github.svg";
+
 import "./style.css";
 
 export default function Homepage() {
@@ -115,18 +118,82 @@ export default function Homepage() {
           </a>{" "}
           battle simulator, and much more!
         </p>
-        <p>
-          Please check back for updates and feel free to reach out to the
-          developer{" "}
-          <a
-            href="https://www.instagram.com/josefalconig/"
-            className="hover:underline panel-home-span"
-            aria-label="Developer's Instagram"
-          >
-            here.
-          </a>
-        </p>
+        <p className="panel-home-span">Please check back for updates!</p>
       </section>
+      <div className="homepage-layout">
+        <div className="developer-blog">
+          <h2 className="blog-title">Developer's Blog</h2>
+          <p className="blog-content">
+            <h3 className="tabbing padding-bottom">Sunday, 09/08/2024</h3>
+            <section className="panel-blog">
+              <p className="padding-bottom">
+                <span className="panel-blog-span">
+                  As of today, the Pokémon Companion application is still a work
+                  in progress.
+                </span>{" "}
+                However, substantial advancements have been made. The Pokédex
+                now features comprehensive data on over 1,000 Pokémon species,
+                including key details such as ID numbers, sprites, types, and
+                base stats.{" "}
+                <span className="panel-blog-span">
+                  The Pokédex offers filtering by type and sorting options by
+                  ID, name, or base stat totals.
+                </span>{" "}
+                This flexible functionality allows users to explore the Pokédex
+                in a way that best suits their needs.
+              </p>
+
+              <p className="padding-bottom">
+                <span className="panel-blog-span">Each Pokémon name</span> in
+                the Pokédex{" "}
+                <span className="panel-blog-span">
+                  links to a preliminary detail page
+                </span>{" "}
+                which, while currently under construction, will soon include
+                expanded information such as names in multiple languages,
+                abilities, flavor text, alternate sprites, and forms, along with
+                much more.
+              </p>
+
+              <p>
+                <span className="panel-blog-span">
+                  Stay tuned for further updates and exciting new features as
+                  they are actively being developed!
+                </span>
+              </p>
+            </section>
+          </p>
+        </div>
+        <div className="social-panels">
+          <div className="social-panel instagram-panel">
+            <a
+              href="https://www.instagram.com/josefalconig/"
+              target="_blank"
+              aria-label="Instagram"
+              className="social-link"
+            >
+              <img
+                src={Instagram}
+                alt="Instagram Logo"
+                className="social-icon"
+              />
+              <span className="social-text">Follow Developer's Instagram</span>
+            </a>
+          </div>
+
+          <div className="social-panel github-panel">
+            <a
+              href="https://github.com/josefalconGH"
+              target="_blank"
+              aria-label="GitHub"
+              className="social-link"
+            >
+              <img src={GitHub} alt="GitHub Logo" className="social-icon" />
+              <span className="social-text">PokéCompanion's Repo</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
