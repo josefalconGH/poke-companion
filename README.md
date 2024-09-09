@@ -24,12 +24,17 @@ Designed with both casual users and competitive players in mind, **PokéCompanio
 
 ## Features
 
+### Key Features
+
 - **Pokédex**: Explore detailed information on all Pokémon species, including stats, abilities, types, evolution chains, and more.
-- **Moves, Items, Abilities**: Access comprehensive databases of moves, items, and abilities to enhance your Pokémon knowledge.
-- **World Coronation Series**: Engage in 1v1 battles with your favorite Pokémon, experiment with strategies, and climb the ranks in the battle simulator.
 - **Filter & Sort**: Easily search for Pokémon based on various criteria, such as type, generation, and base stats.
 - **Responsive Design**: Enjoy a seamless user experience across desktop, tablet, and mobile devices.
 - **Real-Time Updates**: Stay up-to-date with the latest Pokémon data, including new generations, game mechanics, and releases.
+
+### Coming Soon
+
+- **Moves, Items, Abilities**: Access comprehensive databases of moves, items, and abilities to enhance your Pokémon knowledge.
+- **World Coronation Series**: Engage in 1v1 battles with your favorite Pokémon, experiment with strategies, and climb the ranks in the battle simulator.
 - **Battle Simulator Rankings**: Track your progress as you climb the ranks in the 1v1 battle system.
 
 ## GIFs
