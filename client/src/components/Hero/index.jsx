@@ -34,7 +34,6 @@ const Hero = () => {
           alt="poke-companion-sm"
           className="hero-image"
           onClick={handleImageClick}
-          loading="lazy"
           style={{ cursor: "pointer" }}
         />
       </picture>
