@@ -181,7 +181,7 @@ export default function Homepage() {
             className="social-panel github-panel"
           >
             <img src={GitHub} alt="GitHub Logo" className="social-icon" />
-            <span className="social-text">PokéCompanion's Repo</span>
+            <span className="social-text">PokéCompanion's Repository</span>
           </a>
         </div>
       </div>
