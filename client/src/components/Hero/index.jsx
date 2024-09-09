@@ -21,9 +21,12 @@ const Hero = () => {
       />
       <img
         src={pokeCompanion}
+        srcSet={`${pokeCompanionTrim} 300w, ${pokeCompanion} 600w`}
+        sizes="(max-width: 600px) 300px, 600px"
         alt="poke-companion-sm"
         className="hero-image"
         onClick={handleImageClick}
+        loading="lazy"
         style={{ cursor: "pointer" }}
       />
     </div>
@@ -31,4 +34,4 @@ const Hero = () => {
 };
 
 // Export the Hero component
-export default Hero;
+export default React.memo(Hero);
