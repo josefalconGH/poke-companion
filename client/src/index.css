@@ -15,6 +15,10 @@
   --bg-color-panel: #dadada;
   --bg-color-hover: #3640503f;
   --bg-color-answer: #ffcac650;
+  --bg-instagram-panel-start: #fcaf45;
+  --bg-instagram-panel-end: #ff4e50;
+  --bg-github-panel-start: #737681;
+  --bg-github-panel-end: #525b69;
 
   --drop-divider: #7a7a7a;
 
@@ -29,6 +33,7 @@
   --text-white: #f4f4f5;
   --text-link: #fa7970;
   --text-panel: #333;
+  --text-blog-date: #7a7a7a;
 
   --color-highlight: #fa797050;
 }
