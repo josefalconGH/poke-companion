@@ -122,7 +122,7 @@ export default function Homepage() {
       </section>
       <div className="homepage-layout">
         <div className="developer-blog">
-          <h2 className="blog-title">Developer's Blog</h2>
+          <h2 className="blog-title">Developer Blog</h2>
           <p className="blog-content">
             <h3 className="tabbing padding-bottom">Sunday, 09/08/2024</h3>
             <section className="panel-blog">
