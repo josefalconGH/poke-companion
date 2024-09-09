@@ -159,7 +159,7 @@ export default function FAQ() {
                 </span>{" "}
                 but plans are in place to introduce user authentication for
                 features like personalized Pokémon lists, team building,
-                leaderboards, etc.{" "}
+                leaderboards (for World CS), community forums, etc.{" "}
                 <span className="panel-faq-answer-span">
                   JWT tokens will be used for secure authentication.
                 </span>
