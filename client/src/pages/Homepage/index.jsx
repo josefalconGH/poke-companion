@@ -165,33 +165,24 @@ export default function Homepage() {
           </p>
         </div>
         <div className="social-panels">
-          <div className="social-panel instagram-panel">
-            <a
-              href="https://www.instagram.com/josefalconig/"
-              target="_blank"
-              aria-label="Instagram"
-              className="social-link"
-            >
-              <img
-                src={Instagram}
-                alt="Instagram Logo"
-                className="social-icon"
-              />
-              <span className="social-text">Follow Developer's Instagram</span>
-            </a>
-          </div>
-
-          <div className="social-panel github-panel">
-            <a
-              href="https://github.com/josefalconGH"
-              target="_blank"
-              aria-label="GitHub"
-              className="social-link"
-            >
-              <img src={GitHub} alt="GitHub Logo" className="social-icon" />
-              <span className="social-text">PokéCompanion's Repo</span>
-            </a>
-          </div>
+          <a
+            href="https://www.instagram.com/josefalconig/"
+            target="_blank"
+            aria-label="Instagram"
+            className="social-panel instagram-panel"
+          >
+            <img src={Instagram} alt="Instagram Logo" className="social-icon" />
+            <span className="social-text">Follow Developer's Instagram</span>
+          </a>
+          <a
+            href="https://github.com/josefalconGH"
+            target="_blank"
+            aria-label="GitHub"
+            className="social-panel github-panel"
+          >
+            <img src={GitHub} alt="GitHub Logo" className="social-icon" />
+            <span className="social-text">PokéCompanion's Repo</span>
+          </a>
         </div>
       </div>
     </main>
