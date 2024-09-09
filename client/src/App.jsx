@@ -9,6 +9,7 @@ import { setContext } from "@apollo/client/link/context";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import ScrollToTop from "./components/ScrollToTop";
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -105,6 +106,7 @@ function App() {
               <NavBar />
             </header>
             <main className="flex-grow flex justify-center">
+              <ScrollToTop />
               <Outlet />
             </main>
             <Footer />
